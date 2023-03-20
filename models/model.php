@@ -37,9 +37,9 @@ function GetProfesseur()
 function AddOneOrganisation($profession, $annee_debut, $annee_fin, $organisation_nom, $organisation_adresse, $organisation_tel, $organisation_site)
 {
     $cnx = connexionBDD();
-    $requete1 = $cnx->prepare("INSERT INTO Travailler(profession,annee_debut,annee_fin) VALUES($profession,$annee_debut,$annee_fin)");
+    $requete1 = $cnx->prepare("INSERT INTO Travailler(profession,annee_debut,annee_fin) VALUES('$profession','$annee_debut','$annee_fin')");
 
-    $requete2 = $cnx->prepare("INSERT INTO Organisation(organisation_nom,organisation_adresse,organisation_tel,organisation_site) VALUES($organisation_nom,$organisation_adresse,$organisation_tel,$organisation_site)");
+    $requete2 = $cnx->prepare("INSERT INTO Organisation(organisation_nom,organisation_adresse,organisation_tel,organisation_site) VALUES('$organisation_nom','$organisation_adresse','$organisation_tel','$organisation_site')");
 
     return [$requete1, $requete2];
 }

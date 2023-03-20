@@ -1,10 +1,11 @@
 <?php
 
 require_once("../classe/professeur.php");
-require_once("../views/viewProfesseur.php");
+
 
 function addOneProfesseur()
 {
+
     if (isset($_POST["enregistrer"])) {
         $nom = $_POST["prof_name"];
         $telephone = $_POST["prof_tel"];
@@ -17,4 +18,5 @@ function addOneProfesseur()
     } else {
         echo "problème d'inscription";
     }
+    require_once("views/viewProfesseur.php");
 }

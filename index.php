@@ -3,12 +3,12 @@
 define('ROOT', str_replace("index.php", '', $_SERVER['SCRIPT_FILENAME']));
 define('WEBROOT', str_replace("index.php", '', $_SERVER['SCRIPT_NAME']));
 error_reporting(-1); // Pour le développement parti production, il faut le mettre à 0//
-ini_set("display_errors",1); // "" "" "" ""  ""  ""  ""  ""   ""  ""  ""  ""  ""    //
+ini_set("display_errors", 1); // "" "" "" ""  ""  ""  ""  ""   ""  ""  ""  ""  ""    //
 
 require_once(ROOT . "./models/model.php");
 require_once(ROOT . "./controllers/controller.php");
 //exploxe la chaîne de caractère pour récup l'url converti par htaccess
-$params = explode("/", $_GET["p"]);
+$params = explode("/", $_GET["action"]);
 //récupérer de l'url  le controller 
 if ($params[0] != "") {
     $controller = $params[0];

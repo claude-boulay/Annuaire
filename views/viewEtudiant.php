@@ -1,29 +1,29 @@
 <?php require_once("../header.html"); ?>
 
-<form action="controllers/controllerEtudiant.php" method="post">
+<form action="index.php?action=controllerEtudiant/AddOneEtudiant" method="post">
     <center>
         <h2>Ajout d'un Étudiant</h2>
         <table>
             <tr>
                 <td>Nom de l'étudiant</td>
-                <td><input type="text" name="étudiant_nom" size="50"></td>
+                <td><input type="text" name="étudiant_nom" size="50" required></td>
             </tr>
 
             <tr>
                 <td>Prenom de l'étudiant</td>
-                <td><input type="text" name="étudiant_prenom" size="50"></td>
+                <td><input type="text" name="étudiant_prenom" size="50" required></td>
             </tr>
             <tr>
                 <td>Téléphone de l'étudiant</td>
-                <td><input type="tel" name="étudiant_tel" size="50"></td>
+                <td><input type="tel" name="étudiant_tel" size="50" required></td>
             </tr>
             <tr>
                 <td>Email de l'étudiant</td>
-                <td><input type="text" name="étudiant_mail" size="50"></td>
+                <td><input type="text" name="étudiant_mail" size="50" required></td>
             </tr>
             <tr>
                 <td>Promo de l'étudiant</td>
-                <td><input type="text" name="étudiant_promo" size="50"></td>
+                <td><input type="text" name="étudiant_promo" size="50" required></td>
             </tr>
             <tr>
                 <td>Profession</td>
@@ -47,7 +47,7 @@
             </tr>
             <tr>
                 <td>téléphone de l'Organisation</td>
-                <td><input type="text" name="organisation_tel" size="50"></td>
+                <td><input type="tel" name="organisation_tel" size="50"></td>
             </tr>
             <tr>
                 <td>site de l'Organisation</td>

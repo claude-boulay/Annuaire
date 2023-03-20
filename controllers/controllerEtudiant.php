@@ -4,7 +4,6 @@ require_once("../views/viewEtudiant.php");
 
 function AddOneEtudiant()
 {
-
     if (isset($_POST["enregistrer"])) {
         $nom = $_POST["etudiant_nom"];
         $prenom = $_POST["etudiant_prenom"];

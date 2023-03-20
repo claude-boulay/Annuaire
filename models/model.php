@@ -29,9 +29,25 @@ function GetEtudiant()
 function GetProfesseur()
 {
     $cnx = connexionBDD();
-    $requete = "SELECT * FROM Professeur ORDER BY professeur_Id ASC";
+    $requete = "SELECT * FROM Professeur ORDER BY prof_id ASC";
     $resultGetProf = $cnx->query($requete);
     return $resultGetProf;
+}
+
+function GetOrganisation()
+{
+    $cnx = connexionBDD();
+    $requete = "SELECT * FROM Organisation ORDER BY organisation_id ASC";
+    $resultGetOrg = $cnx->query($requete);
+    return $resultGetOrg;
+}
+
+function GetTravail()
+{
+    $cnx = connexionBDD();
+    $requete = "SELECT * FROM Travailler ORDER BY travail_id ASC";
+    $resultGetTravail = $cnx->query($requete);
+    return $resultGetTravail;
 }
 
 function AddOneOrganisation($profession, $annee_debut, $annee_fin, $organisation_nom, $organisation_adresse, $organisation_tel, $organisation_site)

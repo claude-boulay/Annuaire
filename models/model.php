@@ -18,7 +18,7 @@ function connexionBDD()
     }
 }
 
-function GetEtudiant()
+function getEtudiant()
 {
     $cnx = connexionBDD();
     $requete = "SELECT * FROM AncienEtudiant ORDER BY etudiant_Id ASC";
@@ -26,7 +26,7 @@ function GetEtudiant()
     return $resultGetEtudiant;
 }
 
-function GetProfesseur()
+function getProfesseur()
 {
     $cnx = connexionBDD();
     $requete = "SELECT * FROM Professeur ORDER BY prof_id ASC";
@@ -34,7 +34,7 @@ function GetProfesseur()
     return $resultGetProf;
 }
 
-function GetOrganisation()
+function getOrganisation()
 {
     $cnx = connexionBDD();
     $requete = "SELECT * FROM Organisation ORDER BY organisation_id ASC";
@@ -42,7 +42,7 @@ function GetOrganisation()
     return $resultGetOrg;
 }
 
-function GetTravail()
+function getTravail()
 {
     $cnx = connexionBDD();
     $requete = "SELECT * FROM Travailler ORDER BY travail_id ASC";

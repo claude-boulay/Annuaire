@@ -18,7 +18,7 @@ function connexionBDD()
     }
 }
 
-function getEtudiant()
+function GetEtudiant()
 {
     $cnx = connexionBDD();
     $requete = "SELECT * FROM Etudiant ORDER BY etudiant_Id ASC";
@@ -26,7 +26,7 @@ function getEtudiant()
     return $resultGetEtudiant;
 }
 
-function getProfesseur()
+function GetProfesseur()
 {
     $cnx = connexionBDD();
     $requete = "SELECT * FROM Professeur ORDER BY professeur_Id ASC";
@@ -34,20 +34,11 @@ function getProfesseur()
     return $resultGetProf;
 }
 
-function AddOneOrganisation(
-    $profession,
-    $annee_debut,
-    $annee_fin,
-    $organisation_nom,
-    $organisation_adresse,
-    $organisation_tel
-) {
+function AddOneOrganisation($profession, $annee_debut, $annee_fin, $organisation_nom, $organisation_adresse, $organisation_tel) {
     $cnx = connexionBDD();
     $requete1 = $cnx->prepare("INSERT INTO Travailler(profession,annee_debut,annee_fin) VALUES($profession,$annee_debut,$annee_fin)");
 
-    $requete2 = $cnx->prepare("INSERT INTO Organisation(organisation_nom,organisation_adresse,organisation_tel)
-    VALUES($organisation_nom,$organisation_adresse,$organisation_tel)");
-
+    $requete2 = $cnx->prepare("INSERT INTO Organisation(organisation_nom,organisation_adresse,organisation_tel) VALUES($organisation_nom,$organisation_adresse,$organisation_tel)");
 
     return [$requete1, $requete2];
 }

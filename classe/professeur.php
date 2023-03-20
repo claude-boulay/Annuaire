@@ -7,10 +7,9 @@ class Professeur extends Personne
 
     private string $matiere;
     //construteur
-    public function __construct(string $nom, string $prenom, int $telephone, string $mail, string $matiere)
+    public function __construct(string $nom, int $telephone, string $mail, string $matiere)
     {
         $this->setNom($nom);
-        $this->setPrenom($prenom);
         $this->setTelephone($telephone);
         $this->setMail($mail);
         $this->setMatiere($matiere);
@@ -72,10 +71,11 @@ class Professeur extends Personne
     public function Enregistrer()
     {
         $cnx = connexionBDD();
-        $requete = $cnx->prepare("INSERT INTO Professeur(prof_nom,prof_prenom,
+        $requete = $cnx->prepare("INSERT INTO Professeur(prof_name,
         prof_tel,prof_mail,prof_matiere) 
-        VALUES('$this->nom','$this->prenom','$this->telephone','$this->mail','$this->matiere')");
+        VALUES ('$this->nom','$this->telephone','$this->mail','$this->matiere')");
         $result = $requete->execute();
+        return $result;
     }
 
     public static function afficher()
@@ -96,5 +96,3 @@ class Professeur extends Personne
         echo "</center>";
     }
 }
-?>
-

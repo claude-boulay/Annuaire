@@ -74,8 +74,9 @@ class Etudiant extends Personne
         $cnx = connexionBDD();
         $requete = $cnx->prepare("INSERT INTO AncienEtudiant(etudiant_nom,etudiant_prenom,
             etudiant_telephone,etudiant_mail,etudiant_promo) 
-            VALUES('$this->nom','$this->prenom','$this->telephone','$this->mail','$this->promo')");
+            VALUES ('$this->nom','$this->prenom',$this->telephone,'$this->mail','$this->promo')");
         $result = $requete->execute();
+        return $result;
     }
 
     public static function afficher()

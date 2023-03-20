@@ -10,10 +10,6 @@
             </tr>
 
             <tr>
-                <td>Prenom du professeur</td>
-                <td><input type="text" name="prof_prenom" size="50"></td>
-            </tr>
-            <tr>
                 <td>Téléphone du professeur</td>
                 <td><input type="tel" name="prof_tel" size="50"></td>
             </tr>

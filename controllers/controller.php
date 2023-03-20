@@ -1,5 +1,5 @@
 <?php
-require_once("../models/model.php");
+require_once("models/model.php");
 
 function GetAll()
 {
@@ -10,5 +10,3 @@ function GetAll()
 
     return [$infoEtudiant, $infoOrganisation, $infoProfesseur, $infoTravail];
 }
-?>
-

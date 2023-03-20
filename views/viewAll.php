@@ -2,11 +2,6 @@
 
 <form action="controllers/controller.php" method="post">
     <center>
-        <h2></h2>
-        <table>
-            <tr>
-                <td></td>
-            </tr>
-        </table>
+        <?php // mettre des trucs ici ?>
     </center>
 </form>

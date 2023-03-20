@@ -1,6 +1,6 @@
 <?php
-require_once("/home/claude.boulay/public_html/www/annuaire/Classe/etudiant.php");
-require_once("/home/claude.boulay/public_html/www/annuaire/views/viewEtudiant.php");
+require_once("../classe/etudiant.php");
+require_once("../views/viewEtudiant.php");
 
 function AddOneEtudiant()
 {

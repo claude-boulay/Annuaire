@@ -1,7 +1,7 @@
 <?php
 
-require_once("/home/claude.boulay/public_html/www/annuaire/Classe/professeur.php");
-require_once("/home/claude.boulay/public_html/www/annuaire/views/viewProfesseur.php");
+require_once("../classe/professeur.php");
+require_once("../views/viewProfesseur.php");
 
 function AddOneProfesseur()
 {

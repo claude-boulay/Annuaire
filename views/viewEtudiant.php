@@ -1,4 +1,5 @@
-<?php require_once("/home/claude.boulay/public_html/www/annuaire/header.html"); ?>
+<?php require_once("../header.html"); ?>
+
 <form action="controllers/controllerEtudiant.php" method="post">
     <center>
         <h2>Ajout d'un Étudiant</h2>

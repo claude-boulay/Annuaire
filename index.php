@@ -3,8 +3,8 @@
 define('ROOT', str_replace("index.php", '', $_SERVER['SCRIPT_FILENAME']));
 define('WEBROOT', str_replace("index.php", '', $_SERVER['SCRIPT_NAME']));
 
-require_once(ROOT . "models/model.php");
-require_once(ROOT . "controllers/controller.php");
+require_once(ROOT . "./models/model.php");
+require_once(ROOT . "./controllers/controller.php");
 //exploxe la chaîne de caractère pour récup l'url converti par htaccess
 $params = explode("/", $_GET["p"]);
 //récupérer de l'url  le controller 
@@ -33,5 +33,5 @@ if ($params[0] != "") {
     } else {
     }
 } else {
-    require_once("header.html");
+    require_once("./header.html");
 }

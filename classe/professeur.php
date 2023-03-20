@@ -1,6 +1,6 @@
 <?php
 require_once("personne.php");
-require_once("/home/claude.boulay/public_html/www/annuaire/models/model.php");
+require_once("../models/model.php");
 
 class Professeur extends Personne
 {

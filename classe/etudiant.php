@@ -7,7 +7,7 @@ class Etudiant extends Personne
 
     private string $promo;
 
-    public function __construct(string $nom, string $prenom, int $telephone, string $mail, string $promo)
+    public function __construct(string $nom, string $prenom, string $telephone, string $mail, string $promo)
     {
         $this->setNom($nom);
         $this->setPrenom($prenom);
@@ -69,7 +69,7 @@ class Etudiant extends Personne
 
     //autres méthode
 
-    public function Enregistrer()
+    public function enregistrer()
     {
         $cnx = connexionBDD();
         $requete = $cnx->prepare("INSERT INTO AncienEtudiant(etudiant_nom,etudiant_prenom,

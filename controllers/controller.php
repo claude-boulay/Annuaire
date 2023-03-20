@@ -1,12 +1,12 @@
 <?php
 require_once("models/model.php");
 
-function GetAll()
+function getAll()
 {
-    $infoEtudiant = GetEtudiant();
-    $infoProfesseur = GetProfesseur();
-    $infoOrganisation = GetOrganisation();
-    $infoTravail = GetTravail();
+    $infoEtudiant = getEtudiant();
+    $infoProfesseur = getProfesseur();
+    $infoOrganisation = getOrganisation();
+    $infoTravail = getTravail();
 
     return [$infoEtudiant, $infoOrganisation, $infoProfesseur, $infoTravail];
 }

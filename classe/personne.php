@@ -5,7 +5,7 @@ abstract class Personne
 
     protected string $nom;
     protected string $prenom;
-    protected int $telephone;
+    protected string $telephone;
     protected string $mail;
 
     public abstract function Enregistrer();

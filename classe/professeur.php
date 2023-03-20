@@ -4,10 +4,10 @@ require_once("../models/model.php");
 
 class Professeur extends Personne
 {
-
     private string $matiere;
+
     //construteur
-    public function __construct(string $nom, int $telephone, string $mail, string $matiere)
+    public function __construct(string $nom, string $telephone, string $mail, string $matiere)
     {
         $this->setNom($nom);
         $this->setTelephone($telephone);
@@ -68,7 +68,7 @@ class Professeur extends Personne
 
     //autres méthode
 
-    public function Enregistrer()
+    public function enregistrer()
     {
         $cnx = connexionBDD();
         $requete = $cnx->prepare("INSERT INTO Professeur(prof_name,
@@ -80,7 +80,6 @@ class Professeur extends Personne
 
     public static function afficher()
     {
-
         $ligne = getProfesseur();
         echo "<center>";
         echo "<h2>Tous les professeurs aillant fait cours au classes de BTS SIO</h2>";

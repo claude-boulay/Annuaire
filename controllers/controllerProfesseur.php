@@ -3,7 +3,7 @@
 require_once("../classe/professeur.php");
 require_once("../views/viewProfesseur.php");
 
-function AddOneProfesseur()
+function addOneProfesseur()
 {
     if (isset($_POST["enregistrer"])) {
         $nom = $_POST["prof_nom"];
@@ -12,7 +12,7 @@ function AddOneProfesseur()
         $matiere = $_POST["prof_matiere"];
 
         $professeur = new Professeur($nom, $telephone, $mail, $matiere);
-        $professeur->Enregistrer();
+        $professeur->enregistrer();
         echo "inscription réussi";
     } else {
         echo "problème d'inscription";

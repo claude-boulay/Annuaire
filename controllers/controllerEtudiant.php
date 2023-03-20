@@ -2,7 +2,7 @@
 require_once("../classe/etudiant.php");
 require_once("../views/viewEtudiant.php");
 
-function AddOneEtudiant()
+function addOneEtudiant()
 {
     if (isset($_POST["enregistrer"])) {
         $nom = $_POST["etudiant_nom"];
@@ -12,7 +12,7 @@ function AddOneEtudiant()
         $promo = $_POST["etudiant_promo"];
 
         $etudiant = new Etudiant($nom, $prenom, $telephone, $mail, $promo);
-        $etudiant->Enregistrer();
+        $etudiant->enregistrer();
 
         if (isset($_POST["profession"])) {
             $profession = $_POST["profession"];
@@ -23,7 +23,7 @@ function AddOneEtudiant()
             $organisation_tel = $_POST["organisation_tel"];
             $organisation_site = $_POST["site"];
 
-            $tab = AddOneOrganisation(
+            $tab = addOneOrganisation(
                 $profession,
                 $annee_debut,
                 $annee_fin,

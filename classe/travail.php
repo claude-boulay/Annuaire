@@ -8,7 +8,7 @@ class Travail
         
     }
 
-    public function afficher()
+    public static function afficher()
     {
 
     }

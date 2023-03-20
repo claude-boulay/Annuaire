@@ -3,10 +3,10 @@ require_once("../models/model.php");
 
 class Organisation
 {
-    private String $nom;
-    private String $adresse;
-    private String $telephone;
-    private String $site;
+    private string $nom;
+    private string $adresse;
+    private string $telephone;
+    private string $site;
 
     public function __construct()
     {
@@ -53,7 +53,7 @@ class Organisation
         $this->site = $site;
     }
 
-    public function afficher()
+    public static function afficher()
     {
         $ligne = getOrganisation();
         echo "<center>";

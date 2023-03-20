@@ -54,7 +54,7 @@ CREATE TABLE travailler(
         etudiant_id   Int NOT NULL ,
         profession    Varchar (50) NOT NULL ,
         annee_debut   Date NOT NULL ,
-        annee-fin   Date NOT NULL
+        annee_fin   Date NOT NULL
 	,CONSTRAINT travailler_pour_PK PRIMARY KEY (travail_id)
 
 	,CONSTRAINT travailler_pour_Organisation_FK FOREIGN KEY (organisation_id) REFERENCES Organisation(organisation_id)

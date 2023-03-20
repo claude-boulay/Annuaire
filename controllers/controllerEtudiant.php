@@ -23,7 +23,7 @@ function AddOneEtudiant()
             $organisation_adresse = $_POST["organisation_adresse"];
             $organisation_tel = $_POST["organisation_tel"];
 
-            AddOneOrganisation(
+            $tab = AddOneOrganisation(
                 $profession,
                 $annee_debut,
                 $annee_fin,
@@ -31,6 +31,8 @@ function AddOneEtudiant()
                 $organisation_adresse,
                 $organisation_tel
             );
+            $tab[0]->execute();
+            $tab[1]->execute();
         }
         echo "inscription réussi";
     } else {

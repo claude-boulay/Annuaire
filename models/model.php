@@ -42,6 +42,14 @@ function AddOneOrganisation(
     $organisation_adresse,
     $organisation_tel
 ) {
+    $cnx = connexionBDD();
+    $requete1 = $cnx->prepare("INSERT INTO Travailler(profession,annee_debut,annee_fin) VALUES($profession,$annee_debut,$annee_fin)");
+
+    $requete2 = $cnx->prepare("INSERT INTO Organisation(organisation_nom,organisation_adresse,organisation_tel)
+    VALUES($organisation_nom,$organisation_adresse,$organisation_tel)");
+
+
+    return [$requete1, $requete2];
 }
 ?>
 

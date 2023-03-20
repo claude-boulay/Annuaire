@@ -49,14 +49,14 @@ CREATE TABLE Professeur(
 # Table: travailler pour
 #------------------------------------------------------------
 
-CREATE TABLE travailler(
+CREATE TABLE Travailler(
         organisation_id Int NOT NULL ,
         etudiant_id   Int NOT NULL ,
         profession    Varchar (50) NOT NULL ,
         annee_debut   Date NOT NULL ,
-        annee-fin   Date NOT NULL
-	,CONSTRAINT travailler_pour_PK PRIMARY KEY (travail_id)
+        annee_fin   Date NOT NULL
+	,CONSTRAINT Travailler_PK PRIMARY KEY (travail_id)
 
-	,CONSTRAINT travailler_pour_Organisation_FK FOREIGN KEY (organisation_id) REFERENCES Organisation(organisation_id)
-	,CONSTRAINT travailler_pour_AncienEtudiant0_FK FOREIGN KEY (etudiant_id) REFERENCES AncienEtudiant(etudiant_id)
+	,CONSTRAINT Travailler_Organisation_FK FOREIGN KEY (organisation_id) REFERENCES Organisation(organisation_id)
+	,CONSTRAINT Travailler_AncienEtudiant0_FK FOREIGN KEY (etudiant_id) REFERENCES AncienEtudiant(etudiant_id)
 )ENGINE=InnoDB;

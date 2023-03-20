@@ -28,3 +28,5 @@ abstract class Personne
 
     public abstract function getMail();
 }
+?>
+

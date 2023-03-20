@@ -37,3 +37,5 @@ function AddOneEtudiant()
         echo "problème d'inscription";
     }
 }
+?>
+

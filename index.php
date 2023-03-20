@@ -35,3 +35,5 @@ if ($params[0] != "") {
 } else {
     require_once("./header.html");
 }
+?>
+

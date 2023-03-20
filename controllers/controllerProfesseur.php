@@ -19,3 +19,5 @@ function AddOneProfesseur()
         echo "problème d'inscription";
     }
 }
+?>
+

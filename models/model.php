@@ -18,7 +18,6 @@ function connexionBDD()
     }
 }
 
-
 function getEtudiant()
 {
     $cnx = connexionBDD();
@@ -44,3 +43,5 @@ function AddOneOrganisation(
     $organisation_tel
 ) {
 }
+?>
+

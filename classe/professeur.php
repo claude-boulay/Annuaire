@@ -96,3 +96,5 @@ class Professeur extends Personne
         echo "</center>";
     }
 }
+?>
+

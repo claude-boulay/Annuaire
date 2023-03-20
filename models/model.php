@@ -21,7 +21,7 @@ function connexionBDD()
 function GetEtudiant()
 {
     $cnx = connexionBDD();
-    $requete = "SELECT * FROM Etudiant ORDER BY etudiant_Id ASC";
+    $requete = "SELECT * FROM AncienEtudiant ORDER BY etudiant_Id ASC";
     $resultGetEtudiant = $cnx->query($requete);
     return $resultGetEtudiant;
 }
@@ -42,5 +42,3 @@ function AddOneOrganisation($profession, $annee_debut, $annee_fin, $organisation
 
     return [$requete1, $requete2];
 }
-?>
-

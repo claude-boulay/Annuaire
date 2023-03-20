@@ -4,7 +4,7 @@
 
 
 #------------------------------------------------------------
-# Table: AncientEtudiant
+# Table: AncienEtudiant
 #------------------------------------------------------------
 
 CREATE TABLE AncienEtudiant(
@@ -24,9 +24,9 @@ CREATE TABLE AncienEtudiant(
 
 CREATE TABLE Organisation(
         organisation_id      Int  Auto_increment  NOT NULL ,
-        organisation_name    Varchar (50) NOT NULL ,
-        organisation_adresse Varchar (50) NOT NULL ,
-        organisation_tel     Int NOT NULL
+        organisation_name    Varchar (50) ,
+        organisation_adresse Varchar (50) ,
+        organisation_tel     Int
 	,CONSTRAINT Organisation_PK PRIMARY KEY (organisation_id)
 )ENGINE=InnoDB;
 
@@ -46,15 +46,16 @@ CREATE TABLE Professeur(
 
 
 #------------------------------------------------------------
-# Table: travailler pour
+# Table: Travailler
 #------------------------------------------------------------
 
 CREATE TABLE Travailler(
+        travail_id INT Auto_increment NOT NULL,
         organisation_id Int NOT NULL ,
-        etudiant_id   Int NOT NULL ,
-        profession    Varchar (50) NOT NULL ,
-        annee_debut   Date NOT NULL ,
-        annee_fin   Date NOT NULL
+        etudiant_id     Int NOT NULL ,
+        profession      Varchar (50) ,
+        date_entree     Date ,
+        date_sortie     Date
 	,CONSTRAINT Travailler_PK PRIMARY KEY (travail_id)
 
 	,CONSTRAINT Travailler_Organisation_FK FOREIGN KEY (organisation_id) REFERENCES Organisation(organisation_id)

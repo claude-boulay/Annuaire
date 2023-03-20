@@ -72,7 +72,7 @@ class Etudiant extends Personne
     public function Enregistrer()
     {
         $cnx = connexionBDD();
-        $requete = $cnx->prepare("INSERT INTO Etudiant(etudiant_nom,etudiant_prenom,
+        $requete = $cnx->prepare("INSERT INTO AncienEtudiant(etudiant_nom,etudiant_prenom,
             etudiant_telephone,etudiant_mail,etudiant_promo) 
             VALUES('$this->nom','$this->prenom','$this->telephone','$this->mail','$this->promo')");
         $result = $requete->execute();
@@ -95,5 +95,3 @@ class Etudiant extends Personne
         echo "</center>";
     }
 }
-?>
-

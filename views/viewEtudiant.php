@@ -35,7 +35,7 @@
             </tr>
             <tr>
                 <td>Année Fin de Profession</td>
-                <td><input type="text" name="annee_fin" size="50"></td>
+                <td><input type="date" name="annee_fin" size="50"></td>
             </tr>
             <tr>
                 <td>Organisation</td>

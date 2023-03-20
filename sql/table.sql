@@ -57,6 +57,6 @@ CREATE TABLE travailler(
         annee-fin   Date NOT NULL
 	,CONSTRAINT travailler_pour_PK PRIMARY KEY (travail_id)
 
-	,CONSTRAINT travailler_pour_Organisation_FK FOREIGN KEY (Organisation_id) REFERENCES Organisation(Organisation_id)
+	,CONSTRAINT travailler_pour_Organisation_FK FOREIGN KEY (organisation_id) REFERENCES Organisation(organisation_id)
 	,CONSTRAINT travailler_pour_AncienEtudiant0_FK FOREIGN KEY (etudiant_id) REFERENCES AncienEtudiant(etudiant_id)
 )ENGINE=InnoDB;

@@ -26,7 +26,8 @@ CREATE TABLE Organisation(
         organisation_id      Int  Auto_increment  NOT NULL ,
         organisation_name    Varchar (50) ,
         organisation_adresse Varchar (50) ,
-        organisation_tel     Int
+        organisation_tel     Int,
+        organisation_site Varchar(500),
 	,CONSTRAINT Organisation_PK PRIMARY KEY (organisation_id)
 )ENGINE=InnoDB;
 

@@ -49,6 +49,10 @@
                 <td>téléphone de l'Organisation</td>
                 <td><input type="text" name="organisation_tel" size="50"></td>
             </tr>
+            <tr>
+                <td>site de l'Organisation</td>
+                <td><input type="text" name="site" size="50"></td>
+            </tr>
 
             <tr>
                 <td></td>

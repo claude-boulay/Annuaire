@@ -22,6 +22,7 @@ function AddOneEtudiant()
             $organisation_nom = $_POST["organisation_nom"];
             $organisation_adresse = $_POST["organisation_adresse"];
             $organisation_tel = $_POST["organisation_tel"];
+            $organisation_site = $_POST["site"];
 
             $tab = AddOneOrganisation(
                 $profession,
@@ -29,7 +30,8 @@ function AddOneEtudiant()
                 $annee_fin,
                 $organisation_nom,
                 $organisation_adresse,
-                $organisation_tel
+                $organisation_tel,
+                $organisation_site
             );
             $tab[0]->execute();
             $tab[1]->execute();
@@ -39,5 +41,3 @@ function AddOneEtudiant()
         echo "problème d'inscription";
     }
 }
-?>
-

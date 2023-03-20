@@ -61,10 +61,10 @@ class Organisation
         echo "<tr>";
         foreach ($ligne as $valeur)
         {
-            echo "<td>$valeur[0]</td>";
             echo "<td>$valeur[1]</td>";
             echo "<td>$valeur[2]</td>";
             echo "<td>$valeur[3]</td>";
+            echo "<td>$valeur[4]</td>";
         }
         echo "</tr>";
         echo "</center>";

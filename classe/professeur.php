@@ -73,7 +73,12 @@ class Professeur extends Personne
         $cnx = connexionBDD();
         $requete = $cnx->prepare("INSERT INTO Professeur(prof_name,
         prof_tel,prof_mail,prof_matiere) 
-        VALUES ('$this->nom','$this->telephone','$this->mail','$this->matiere')");
+        VALUES (:nom,:telephone,:mail,:matiere)");
+        $requete->bindvalue(':nom', $this->nom);
+        $requete->bindvalue(':telephone', $this->telephone);
+        $requete->bindvalue(':mail', $this->mail);
+        $requete->bindvalue(':matiere', $this->matiere);
+
         $result = $requete->execute();
         return $result;
     }

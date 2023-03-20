@@ -6,7 +6,7 @@ require_once("../views/viewProfesseur.php");
 function addOneProfesseur()
 {
     if (isset($_POST["enregistrer"])) {
-        $nom = $_POST["prof_nom"];
+        $nom = $_POST["prof_name"];
         $telephone = $_POST["prof_tel"];
         $mail = $_POST["prof_mail"];
         $matiere = $_POST["prof_matiere"];

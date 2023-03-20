@@ -6,12 +6,12 @@
         <table>
             <tr>
                 <td>Nom du professeur</td>
-                <td><input type="text" name="prof_nom" size="50"></td>
+                <td><input type="text" name="prof_name" size="50"></td>
             </tr>
 
             <tr>
                 <td>Téléphone du professeur</td>
-                <td><input type="tel" name="prof_tel" size="50"></td>
+                <td><input type="text" name="prof_tel" size="50"></td>
             </tr>
             <tr>
                 <td>Email du professeur</td>
@@ -23,7 +23,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td><input type="reset" name="effacer" value="Effacer"><input type="submit" name="enregistrer" value="Enregistrer"></td>
+                <td><input type="reset" name="effacer" value="Effacer"><input type="submit" name="enregistrer" value="enregistrer"></td>
             </tr>
         </table>
     </center>

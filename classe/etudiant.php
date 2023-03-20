@@ -74,7 +74,12 @@ class Etudiant extends Personne
         $cnx = connexionBDD();
         $requete = $cnx->prepare("INSERT INTO AncienEtudiant(etudiant_nom,etudiant_prenom,
             etudiant_telephone,etudiant_mail,etudiant_promo) 
-            VALUES ('$this->nom','$this->prenom',$this->telephone,'$this->mail','$this->promo')");
+            VALUES (:nom,:prenom,:telephone,:mail,:promo)");
+        $requete->bindvalue(':nom', $this->nom);
+        $requete->bindvalue(':prenom', $this->prenom);
+        $requete->bindvalue(':telephone', $this->telephone);
+        $requete->bindvalue('mail', $this->mail);
+        $requete->bindvalue(':promo', $this->promo);
         $result = $requete->execute();
         return $result;
     }

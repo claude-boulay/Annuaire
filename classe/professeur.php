@@ -78,7 +78,7 @@ class Professeur extends Personne
         $requete->bindvalue(':telephone', $this->telephone);
         $requete->bindvalue(':mail', $this->mail);
         $requete->bindvalue(':matiere', $this->matiere);
-        echo $requete;
+
 
         $result = $requete->execute();
         return $result;

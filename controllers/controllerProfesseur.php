@@ -1,6 +1,7 @@
 <?php
 
 require_once("classe/professeur.php");
+require_once("models/model.php");
 
 
 function addOneProfesseur()

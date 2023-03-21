@@ -1,6 +1,7 @@
 <?php
 require_once("classe/etudiant.php");
-require_once("views/viewEtudiant.php");
+
+require_once("models/model.php");
 
 function addOneEtudiant()
 {
@@ -39,4 +40,5 @@ function addOneEtudiant()
     } else {
         echo "problème d'inscription";
     }
+    require_once("views/viewEtudiant.php");
 }

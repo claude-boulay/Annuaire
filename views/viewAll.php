@@ -1,7 +1,8 @@
-<?php require_once("../header.html"); ?>
+<?php require_once("header.html"); ?>
 
-<form action="controllers/controller.php" method="post">
+<form action="index.php?action=controller.php/getAll" method="post">
     <center>
-        <?php // mettre des trucs ici ?>
+        <?php // mettre des trucs ici 
+        ?>
     </center>
 </form>

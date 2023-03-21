@@ -50,22 +50,22 @@ function getTravail()
     return $resultGetTravail;
 }
 
-function addOneOrganisation($organisation_nom, $organisation_adresse, $organisation_tel, $organisation_site)
+function addOneOrganisation($organisation_id, $organisation_nom, $organisation_adresse, $organisation_tel, $organisation_site)
 {
     $cnx = connexionBDD();
 
 
-    $requete2 = $cnx->prepare("INSERT INTO Organisation(organisation_name,organisation_adresse,organisation_tel,organisation_site) VALUES('$organisation_nom','$organisation_adresse','$organisation_tel','$organisation_site')");
+    $requete2 = $cnx->prepare("INSERT INTO Organisation(organisation_id,organisation_name,organisation_adresse,organisation_tel,organisation_site) VALUES('$organisation_id','$organisation_nom','$organisation_adresse','$organisation_tel','$organisation_site')");
 
     $result = $requete2->execute();
     return $result;
 }
 
-function addOneTravail($profession, $annee_debut, $annee_fin)
+function addOneTravail($organisation_id, $etudiant_id, $profession, $annee_debut, $annee_fin)
 {
     $cnx = connexionBDD();
 
-    $requete1 = $cnx->prepare("INSERT INTO Travailler(profession,annee_debut,annee_fin) VALUES('$profession','$annee_debut','$annee_fin')");
+    $requete1 = $cnx->prepare("INSERT INTO Travailler(organisation_id,etudiant_id,profession,annee_debut,annee_fin) VALUES('$organisation_id','$etudiant_id','$profession','$annee_debut','$annee_fin')");
     $result = $requete1->execute();
     return $result;
 }

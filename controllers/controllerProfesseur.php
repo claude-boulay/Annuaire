@@ -15,9 +15,6 @@ function addOneProfesseur()
 
         $professeur = new Professeur($nom, $telephone, $mail, $matiere);
         $professeur->enregistrer();
-        echo "inscription réussi";
-    } else {
-        echo "problème d'inscription";
     }
     require_once("views/viewProfesseur.php");
 }

@@ -37,7 +37,7 @@ function getProfesseur()
 function getOrganisation()
 {
     $cnx = connexionBDD();
-    $requete = "SELECT * FROM Organisation ORDER BY organisation_id ASC";
+    $requete = $cnx->prepare("SELECT * FROM Organisation ORDER BY organisation_id ASC");
     $resultGetOrg = $cnx->query($requete);
     return $resultGetOrg;
 }
@@ -45,7 +45,7 @@ function getOrganisation()
 function getTravail()
 {
     $cnx = connexionBDD();
-    $requete = "SELECT * FROM Travailler ORDER BY travail_id ASC";
+    $requete = $cnx->prepare("SELECT * FROM Travailler ORDER BY travail_id ASC");
     $resultGetTravail = $cnx->query($requete);
     return $resultGetTravail;
 }
@@ -64,6 +64,7 @@ function addOneOrganisation($organisation_nom, $organisation_adresse, $organisat
 function addOneTravail($profession, $annee_debut, $annee_fin)
 {
     $cnx = connexionBDD();
+
     $requete1 = $cnx->prepare("INSERT INTO Travailler(profession,annee_debut,annee_fin) VALUES('$profession','$annee_debut','$annee_fin')");
     $result = $requete1->execute();
     return $result;

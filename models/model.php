@@ -49,20 +49,22 @@ function getTravail()
     $resultGetTravail = $cnx->query($requete);
     return $resultGetTravail;
 }
-function addOneTravail($profession, $annee_debut, $annee_fin)
-{
-    $cnx = connexionBDD();
-    $requete1 = $cnx->prepare("INSERT INTO Travailler(profession,annee_debut,annee_fin) VALUES('$profession','$annee_debut','$annee_fin')");
-    $result = $requete1->execute();
-    return $result;
-}
+
 function addOneOrganisation($organisation_nom, $organisation_adresse, $organisation_tel, $organisation_site)
 {
     $cnx = connexionBDD();
 
 
-    $requete2 = $cnx->prepare("INSERT INTO Organisation(organisation_nom,organisation_adresse,organisation_tel,organisation_site) VALUES('$organisation_nom','$organisation_adresse','$organisation_tel','$organisation_site')");
+    $requete2 = $cnx->prepare("INSERT INTO Organisation(organisation_name,organisation_adresse,organisation_tel,organisation_site) VALUES('$organisation_nom','$organisation_adresse','$organisation_tel','$organisation_site')");
 
     $result = $requete2->execute();
+    return $result;
+}
+
+function addOneTravail($profession, $annee_debut, $annee_fin)
+{
+    $cnx = connexionBDD();
+    $requete1 = $cnx->prepare("INSERT INTO Travailler(profession,annee_debut,annee_fin) VALUES('$profession','$annee_debut','$annee_fin')");
+    $result = $requete1->execute();
     return $result;
 }

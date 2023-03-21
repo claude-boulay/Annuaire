@@ -81,7 +81,7 @@ class Etudiant extends Personne
         $requete->bindvalue('mail', $this->mail);
         $requete->bindvalue(':promo', $this->promo);
         $result = $requete->execute();
-        echo $requete;
+        var_dump($requete);
         return $result;
     }
 

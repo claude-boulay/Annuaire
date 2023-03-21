@@ -43,7 +43,7 @@
             </tr>
             <tr>
                 <td>Adresse de l'Organisation</td>
-                <td><input type="text" name="organisation_addresse" size="50"></td>
+                <td><input type="text" name="organisation_adresse" size="50"></td>
             </tr>
             <tr>
                 <td>Téléphone de l'Organisation</td>

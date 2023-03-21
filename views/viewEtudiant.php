@@ -1,4 +1,4 @@
-<?php require_once("../header.html"); ?>
+<?php require_once("header.html"); ?>
 
 <form action="index.php?action=controllerEtudiant/AddOneEtudiant" method="post">
     <center>

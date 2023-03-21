@@ -1,6 +1,6 @@
 <?php
 require_once("personne.php");
-require_once("../models/model.php");
+require_once("models/model.php");
 
 class Etudiant extends Personne
 {
@@ -81,6 +81,7 @@ class Etudiant extends Personne
         $requete->bindvalue('mail', $this->mail);
         $requete->bindvalue(':promo', $this->promo);
         $result = $requete->execute();
+        echo $requete;
         return $result;
     }
 

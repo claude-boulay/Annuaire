@@ -1,6 +1,6 @@
 <?php
 
-require_once("../classe/professeur.php");
+require_once("classe/professeur.php");
 
 
 function addOneProfesseur()

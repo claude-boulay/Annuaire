@@ -8,32 +8,35 @@ ini_set("display_errors", 1); // "" "" "" ""  ""  ""  ""  ""   ""  ""  ""  ""  "
 require_once(ROOT . "./models/model.php");
 require_once(ROOT . "./controllers/controller.php");
 //exploxe la chaîne de caractère pour récup l'url converti par htaccess
-$params = explode("/", $_GET["action"]);
-//récupérer de l'url  le controller 
-if ($params[0] != "") {
-    $controller = $params[0];
-    //récupération de l'action (méthode à appliquer)
-    if (isset($params[1])) {
-        $action = $params[1];
-    } else {
-        $action = "index";
-    }
+if ($_GET['action']) {
+    $params = explode("/", $_GET['action']);
+    /*echo "Paramètre 1 = " . $params[0];
+    echo "<br>";
+    echo "Paramètre 2 = " . $params[1];
+    echo "<br>";
+    echo "Paramètre 3 = " . $params[2];
+    echo "<br>";*/
+    if ($params[0] != "") {
+        $controller = $params[0];
 
-
-    //appel du controller voulue
-
-    require_once(ROOT . 'controllers/' . $controller . '.php');
-
-    if (function_exists($action)) {
-        if (isset($params[2]) && isset($params[3])) {
-            $action($params[2], $params[3]);
-        } elseif (isset($params[2])) {
-            $action($params[2]);
-        } else {
-            $action();
+        $action = "";
+        if (isset($params[1])) {
+            $action = $params[1];
         }
-    } else {
+        require_once(ROOT . 'controllers/' . $controller . '.php');
+
+        if (function_exists($action)) {
+            if (isset($params[2]) && isset($params[3])) {
+                $action($params[2], $params[3]);
+            } elseif (isset($params[2])) {
+                $action($params[2]);
+            } else {
+                $action();
+            }
+        } else {
+            require("header.html");
+        }
     }
 } else {
-    require_once("./header.html");
+    require('header.html');
 }

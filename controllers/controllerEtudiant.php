@@ -1,15 +1,15 @@
 <?php
-require_once("../classe/etudiant.php");
-require_once("../views/viewEtudiant.php");
+require_once("classe/etudiant.php");
+require_once("views/viewEtudiant.php");
 
 function addOneEtudiant()
 {
     if (isset($_POST["enregistrer"])) {
-        $nom = $_POST["etudiant_nom"];
-        $prenom = $_POST["etudiant_prenom"];
-        $telephone = $_POST["etudiant_tel"];
-        $mail = $_POST["etudiant_mail"];
-        $promo = $_POST["etudiant_promo"];
+        $nom = $_POST["étudiant_nom"];
+        $prenom = $_POST["étudiant_prenom"];
+        $telephone = $_POST["étudiant_tel"];
+        $mail = $_POST["étudiant_mail"];
+        $promo = $_POST["étudiant_promo"];
 
         $etudiant = new Etudiant($nom, $prenom, $telephone, $mail, $promo);
         $etudiant->enregistrer();

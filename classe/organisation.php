@@ -1,5 +1,5 @@
 <?php
-require_once("../models/model.php");
+require_once("models/model.php");
 
 class Organisation
 {
@@ -10,7 +10,6 @@ class Organisation
 
     public function __construct()
     {
-
     }
 
     public function getNom()
@@ -56,18 +55,15 @@ class Organisation
     public static function afficher()
     {
         $ligne = getOrganisation();
-        echo "<center>";
-        echo "<h2></h2>";
-        echo "<tr>";
-        foreach ($ligne as $valeur)
-        {
+
+
+        foreach ($ligne as $valeur) {
+            echo "<tr>";
             echo "<td>$valeur[1]</td>";
             echo "<td>$valeur[2]</td>";
             echo "<td>$valeur[3]</td>";
             echo "<td>$valeur[4]</td>";
+            echo "</tr>";
         }
-        echo "</tr>";
-        echo "</center>";
     }
 }
-?>

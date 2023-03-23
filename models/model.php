@@ -37,7 +37,7 @@ function getProfesseur()
 function getOrganisation()
 {
     $cnx = connexionBDD();
-    $requete = $cnx->prepare("SELECT * FROM Organisation ORDER BY organisation_id ASC");
+    $requete = "SELECT * FROM Organisation ORDER BY organisation_id ASC";
     $resultGetOrg = $cnx->query($requete);
     return $resultGetOrg;
 }
@@ -45,7 +45,7 @@ function getOrganisation()
 function getTravail()
 {
     $cnx = connexionBDD();
-    $requete = $cnx->prepare("SELECT * FROM Travailler ORDER BY travail_id ASC");
+    $requete = "SELECT * FROM Travailler ORDER BY travail_id ASC";
     $resultGetTravail = $cnx->query($requete);
     return $resultGetTravail;
 }

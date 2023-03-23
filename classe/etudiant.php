@@ -91,17 +91,17 @@ class Etudiant extends Personne
     public static function afficher()
     {
         $ligne = getEtudiant();
-        echo "<center>";
-        echo "<h2>Tous les étudiant aillant participer au BTS SIO</h2>";
-        echo "<tr>";
+
+
+
         foreach ($ligne as $valeur) {
+            echo "<tr>";
             echo "<td>$valeur[1]</td>";
             echo "<td>$valeur[2]</td>";
             echo "<td>$valeur[3]</td>";
             echo "<td>$valeur[4]</td>";
             echo "<td>$valeur[5]</td>";
+            echo "</tr>";
         }
-        echo "</tr>";
-        echo "</center>";
     }
 }

@@ -10,3 +10,8 @@ function getAll()
 
     return [$infoEtudiant, $infoOrganisation, $infoProfesseur, $infoTravail];
 }
+
+function afficherAll()
+{
+    require_once("views/viewAll.php");
+}

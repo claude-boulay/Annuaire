@@ -1,7 +1,5 @@
 <?php require_once("header.html");
-require_once("classe/etudiant.php");
-require_once("classe/organisation.php");
-require_once("classe/travail.php");
+require_once("models/model.php");
 require_once("classe/professeur.php"); ?>
 
 
@@ -22,9 +20,7 @@ require_once("classe/professeur.php"); ?>
             <th>Site de l'Organisation</th>
         </tr>
         <?php
-        Etudiant::afficher();
-        Travail::afficher();
-        Organisation::afficher();
+        getAll();
         ?>
     </table>
     <br>

@@ -69,3 +69,29 @@ function addOneTravail($organisation_id, $etudiant_id, $profession, $annee_debut
     $result = $requete1->execute();
     return $result;
 }
+
+function getAll()
+{
+    $cnx = connexionBDD();
+    $requete = "SELECT etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo,travail_id,profession,(annee_fin -annee_debut) as temps_profession, organisation_id,organisation_name,organisation_adresse,organisation_tel, organisation_site FROM AncienEtudiant,Travailler,Organisation WHERE AncienEtudiant.etudiant_id=Travailler.etudiant_id AND Travailler.organisation_id=Organisation.organisation_id";
+    $resultGetAll = $cnx->query($requete);
+    $ligne = $resultGetAll->fetchAll(PDO::FETCH_NUM);
+
+    foreach ($ligne as $valeur) {
+        echo "<tr>";
+        echo "<td>$valeur[1]</td>";
+        echo "<td>$valeur[2]</td>";
+        echo "<td>$valeur[3]</td>";
+        echo "<td>$valeur[4]</td>";
+        echo "<td>$valeur[5]</td>";
+        echo "<td>$valeur[9]</td>";
+        echo "<td>$valeur[10]</td>";
+        //echo "<td>$valeur[11]</td>";
+
+        echo "<td>$valeur[13]</td>";
+        echo "<td>$valeur[14]</td>";
+        echo "<td>$valeur[15]</td>";
+        echo "<td>$valeur[16]</td>";
+        echo "</tr>";
+    }
+}

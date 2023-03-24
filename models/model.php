@@ -73,7 +73,7 @@ function addOneTravail($organisation_id, $etudiant_id, $profession, $annee_debut
 function getAll()
 {
     $cnx = connexionBDD();
-    $requete = "SELECT etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo,travail_id,profession,(annee_fin -annee_debut) as temps_profession, organisation_id,organisation_name,organisation_adresse,organisation_tel, organisation_site FROM AncienEtudiant,Travailler,Organisation WHERE AncienEtudiant.etudiant_id=Travailler.etudiant_id AND Travailler.organisation_id=Organisation.organisation_id";
+    $requete = "SELECT etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo,travail_id,profession,(DATEDIFF(annee_debut,annee_fin)) as temps_profession, organisation_id,organisation_name,organisation_adresse,organisation_tel, organisation_site FROM AncienEtudiant,Travailler,Organisation WHERE AncienEtudiant.etudiant_id=Travailler.etudiant_id AND Travailler.organisation_id=Organisation.organisation_id";
     $resultGetAll = $cnx->query($requete);
     $ligne = $resultGetAll->fetchAll(PDO::FETCH_NUM);
 

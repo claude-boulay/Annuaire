@@ -21,9 +21,10 @@ require_once("classe/professeur.php"); ?>
             <th>Adresse de l'Organisation</th>
             <th>Téléphone de l'Organisation</th>
             <th>Site de l'Organisation</th>
+            <th>Modification</th>
         </tr>
         <?php
-        getAll();
+        getAlls();
         Etudiant::afficher();
         ?>
     </table>

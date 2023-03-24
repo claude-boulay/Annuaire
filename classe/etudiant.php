@@ -93,7 +93,7 @@ class Etudiant extends Personne
 
     public static function afficher()
     {
-        $ligne = getEtudiant();
+        $ligne = getEtudiants();
 
 
 
@@ -110,6 +110,7 @@ class Etudiant extends Personne
             echo "<td>Non défini</td>";
             echo "<td>Non défini</td>";
             echo "<td>Non défini</td>";
+            echo "<td><a href=controllerEtudiant/getUpdate/ $valeur[0] >Modifier</a></td>";
             echo "</tr>";
         }
     }

@@ -60,9 +60,10 @@ function addOneEtudiant()
     }
 }
 
-function getUpdateEtudiant($etudiant_id)
+function getUpdate($etudiant_id, $organisation_id)
 {
-    $data = getEtudiant($etudiant_id);
+    $data = getEtudiant($etudiant_id) + getTravail($etudiant_id, $organisation_id) + getOrganisation($organisation_id);
+
     if (!$data) {
         echo "Aucun étudiant pour cette id";
     } else {
@@ -116,4 +117,8 @@ function getUpdateEtudiant($etudiant_id)
     } else {
         echo "Tous Les champs sont requis";
     }
+}
+
+function getUpdateEtudiant()
+{
 }

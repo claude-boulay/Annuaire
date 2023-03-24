@@ -102,7 +102,7 @@ function getAlls()
         echo "<td>$valeur[11]</td>";
         echo "<td>$valeur[12]</td>";
         echo "<td>$valeur[13]</td>";
-        echo "<td><a href=controllerEtudiant/getUpdate/ $valeur[0] >Modifier</a></td>";
+        echo "<td><a href=controllerEtudiant/getUpdate/$valeur[0] >Modifier</a></td>";
 
         echo "</tr>";
     }

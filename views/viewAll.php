@@ -1,10 +1,13 @@
 <?php require_once("header.html");
 require_once("models/model.php");
+require_once("classe/etudiant.php");
 require_once("classe/professeur.php"); ?>
 
 
 <center>
+    <br>
     <h2>Tous les étudiant aillant participer au BTS SIO</h2>
+    <br>
     <table border="1">
         <tr>
             <th>Nom de l'étudiant</th>
@@ -21,6 +24,7 @@ require_once("classe/professeur.php"); ?>
         </tr>
         <?php
         getAll();
+        Etudiant::afficher();
         ?>
     </table>
     <br>

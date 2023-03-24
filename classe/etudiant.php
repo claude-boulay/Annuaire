@@ -101,6 +101,12 @@ class Etudiant extends Personne
             echo "<td>$valeur[3]</td>";
             echo "<td>$valeur[4]</td>";
             echo "<td>$valeur[5]</td>";
+            echo "<td>NULL</td>";
+            echo "<td>NULL</td>";
+            echo "<td>NULL</td>";
+            echo "<td>NULL</td>";
+            echo "<td>NULL</td>";
+            echo "<td>NULL</td>";
             echo "</tr>";
         }
     }

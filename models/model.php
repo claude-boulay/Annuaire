@@ -21,7 +21,7 @@ function connexionBDD()
 function getEtudiant()
 {
     $cnx = connexionBDD();
-    $requete = "SELECT AncienEtudiant.etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo FROM AncienEtudiant,Travailler WHERE AncienEtudiant.etudiant_id=Travailler.etudiant_id AND profession='' ORDER BY etudiant_Id ASC";
+    $requete = "SELECT AncienEtudiant.etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo FROM AncienEtudiant  ORDER BY etudiant_Id ASC";
     $resultGetEtudiant = $cnx->query($requete);
     return $resultGetEtudiant;
 }

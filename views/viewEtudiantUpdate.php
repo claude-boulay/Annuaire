@@ -1,6 +1,6 @@
 <?php require_once("header.html"); ?>
 
-<form action="index.php?action=controllerEtudiant/AddOneEtudiant" method="post">
+<form action="index.php?action=controllerEtudiant/Update" method="post">
     <center>
         <h2>Ajout d'un Étudiant</h2>
         <table>

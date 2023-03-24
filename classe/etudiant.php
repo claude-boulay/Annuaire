@@ -110,8 +110,27 @@ class Etudiant extends Personne
             echo "<td>Non défini</td>";
             echo "<td>Non défini</td>";
             echo "<td>Non défini</td>";
-            echo "<td><a href=controllerEtudiant/getUpdate/ $valeur[0] >Modifier</a></td>";
+            echo "<td><a href=controllerEtudiant/getUpdate/$valeur[0] >Modifier</a></td>";
             echo "</tr>";
         }
+    }
+
+    public function Update()
+    {
+        $cnx = connexionBDD();
+        $requete = $cnx->prepare("UPDATE AncienEtudiant SET etudiant_id= :id,
+        etudiant_nom=:nom,etudiant_prenom=:prenom,
+        etudiant_telephone=:telephone,etudiant_mai=:mail
+        etudiant_promo=:promo,etudiant_travail=:travail");
+
+        $requete->bindValue(':id', $this->id);
+        $requete->bindvalue(':nom', $this->nom);
+        $requete->bindvalue(':prenom', $this->prenom);
+        $requete->bindvalue(':telephone', $this->telephone);
+        $requete->bindvalue('mail', $this->mail);
+        $requete->bindvalue(':promo', $this->promo);
+        $requete->bindvalue(':travail', $this->travail);
+        $result = $requete->execute();
+        return $result;
     }
 }

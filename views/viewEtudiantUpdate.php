@@ -69,7 +69,7 @@
 
             <tr>
                 <td></td>
-                <td><input type="reset" name="effacer" value="Effacer"><input type="submit" name="enregistrer" value="Enregistrer"></td>
+                <td><input type="reset" name="effacer" value="Effacer"><input type="submit" name="update" value="Update"></td>
             </tr>
 
         </table>

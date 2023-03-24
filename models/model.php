@@ -117,3 +117,23 @@ function getAll($etudiant_id, $organisation_id)
     $data = $resultGetAll->fetchAll(PDO::FETCH_ASSOC);
     return $data;
 }
+
+function UpdateOneOrganisation($organisation_id, $organisation_nom, $organisation_adresse, $organisation_tel, $organisation_site)
+{
+    $cnx = connexionBDD();
+
+
+    $requete2 = $cnx->prepare("UPDATE Organisation SET organisation_nom='$organisation_nom',organisation_adresse='$organisation_adresse',organisation_tel='$organisation_tel',organisation_site='$organisation_site' WHERE organisation_id=$organisation_id");
+
+    $result = $requete2->execute();
+    return $result;
+}
+
+function UpdateOneTravail($organisation_id, $etudiant_id, $profession, $annee_debut, $annee_fin)
+{
+    $cnx = connexionBDD();
+
+    $requete1 = $cnx->prepare("UPDATE Travailler SET profession='$profession',annee_debut='$annee_debut',annee_fin='$annee_fin' WHERE  organisation_id=$organisation_id AND etudiant_id=$etudiant_id");
+    $result = $requete1->execute();
+    return $result;
+}

@@ -13,7 +13,8 @@ CREATE TABLE AncienEtudiant(
         etudiant_prenom    Varchar (50) NOT NULL ,
         etudiant_tel       Varchar (50)  NOT NULL ,
         etudiant_mail      Varchar (50) NOT NULL ,
-        etudiant_promo     Varchar (50) NOT NULL
+        etudiant_promo     Varchar (50) NOT NULL,
+        etudiant_travail Boolean NOT NULL,
 	,CONSTRAINT AncienEtudiant_PK PRIMARY KEY (etudiant_id)
 )ENGINE=InnoDB;
 

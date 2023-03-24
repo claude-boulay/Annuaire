@@ -21,7 +21,7 @@ function connexionBDD()
 function getEtudiant()
 {
     $cnx = connexionBDD();
-    $requete = "SELECT AncienEtudiant.etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo FROM AncienEtudiant  ORDER BY etudiant_Id ASC";
+    $requete = "SELECT AncienEtudiant.etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo FROM AncienEtudiant WHERE etudiant_travail IS false ORDER BY etudiant_Id ASC";
     $resultGetEtudiant = $cnx->query($requete);
     return $resultGetEtudiant;
 }
@@ -55,7 +55,7 @@ function addOneOrganisation($organisation_id, $organisation_nom, $organisation_a
     $cnx = connexionBDD();
 
 
-    $requete2 = $cnx->prepare("INSERT INTO Organisation(organisation_id,organisation_name,organisation_adresse,organisation_tel,organisation_site) VALUES('$organisation_id','$organisation_nom','$organisation_adresse','$organisation_tel','$organisation_site')");
+    $requete2 = $cnx->prepare("INSERT INTO Organisation(organisation_id,organisation_nom,organisation_adresse,organisation_tel,organisation_site) VALUES('$organisation_id','$organisation_nom','$organisation_adresse','$organisation_tel','$organisation_site')");
 
     $result = $requete2->execute();
     return $result;
@@ -73,7 +73,7 @@ function addOneTravail($organisation_id, $etudiant_id, $profession, $annee_debut
 function getAll()
 {
     $cnx = connexionBDD();
-    $requete = "SELECT DISTINCT AncienEtudiant.etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo,travail_id,profession,(DATEDIFF(annee_fin,annee_debut)) as temps_profession, Organisation.organisation_id,organisation_name,organisation_adresse,organisation_tel, organisation_site FROM AncienEtudiant,Travailler,Organisation 
+    $requete = "SELECT DISTINCT AncienEtudiant.etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo,travail_id,profession,(DATEDIFF(annee_fin,annee_debut)) as temps_profession, Organisation.organisation_id,organisation_nom,organisation_adresse,organisation_tel, organisation_site FROM AncienEtudiant,Travailler,Organisation 
     WHERE AncienEtudiant.etudiant_id=Travailler.etudiant_id AND Travailler.organisation_id=Organisation.organisation_id ORDER BY annee_fin DESC";
     $resultGetAll = $cnx->query($requete);
     $ligne = $resultGetAll->fetchAll(PDO::FETCH_NUM);

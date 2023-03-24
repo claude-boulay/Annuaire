@@ -30,6 +30,10 @@
                 <td><input type="text" name="étudiant_promo" size="50" required></td>
             </tr>
             <tr>
+                <td>Possède un Travail</td>
+                <td><label>Oui</label><input type="radio" name="travail" value="1" id="true"> <label>Faux</label><input type="radio" name="travail" value="0" id="false"></td>
+            </tr>
+            <tr>
                 <td>Profession</td>
                 <td><input type="text" name="profession" size="50"></td>
             </tr>
@@ -43,7 +47,7 @@
             </tr>
             <tr>
                 <td>Organisation Id</td>
-                <td><input type="text" name="organisation_id" size="50" required></td>
+                <td><input type="text" name="organisation_id" size="50"></td>
             </tr>
             <tr>
                 <td>Organisation</td>
@@ -62,10 +66,12 @@
                 <td><input type="text" name="site" size="50"></td>
             </tr>
 
+
             <tr>
                 <td></td>
                 <td><input type="reset" name="effacer" value="Effacer"><input type="submit" name="enregistrer" value="Enregistrer"></td>
             </tr>
+
         </table>
     </center>
 </form>

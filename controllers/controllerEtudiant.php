@@ -13,8 +13,9 @@ function addOneEtudiant()
         $mail = $_POST["étudiant_mail"];
         $promo = $_POST["étudiant_promo"];
         $id_org = $_POST["organisation_id"];
+        $travail = $_POST["travail"];
 
-        $etudiant = new Etudiant($id, $nom, $prenom, $telephone, $mail, $promo);
+        $etudiant = new Etudiant($id, $nom, $prenom, $telephone, $mail, $promo, $travail);
         $etudiant->enregistrer();
 
 

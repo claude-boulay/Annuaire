@@ -6,9 +6,10 @@ class Etudiant extends Personne
 {
 
     private string $promo;
+    private int $travail;
     private $id;
 
-    public function __construct($id, string $nom, string $prenom, string $telephone, string $mail, string $promo)
+    public function __construct($id, string $nom, string $prenom, string $telephone, string $mail, string $promo, int $travail)
     {
         $this->id = $id;
         $this->setNom($nom);
@@ -16,6 +17,7 @@ class Etudiant extends Personne
         $this->setTelephone($telephone);
         $this->setMail($mail);
         $this->setPromo($promo);
+        $this->travail = $travail;
     }
     //setter
     public function setNom($nom)
@@ -75,14 +77,15 @@ class Etudiant extends Personne
     {
         $cnx = connexionBDD();
         $requete = $cnx->prepare("INSERT INTO AncienEtudiant(etudiant_id,etudiant_nom,etudiant_prenom,
-            etudiant_telephone,etudiant_mail,etudiant_promo) 
-            VALUES (:id,:nom,:prenom,:telephone,:mail,:promo)");
+            etudiant_telephone,etudiant_mail,etudiant_promo,etudiant_travail) 
+            VALUES (:id,:nom,:prenom,:telephone,:mail,:promo,:travail)");
         $requete->bindValue(':id', $this->id);
         $requete->bindvalue(':nom', $this->nom);
         $requete->bindvalue(':prenom', $this->prenom);
         $requete->bindvalue(':telephone', $this->telephone);
         $requete->bindvalue('mail', $this->mail);
         $requete->bindvalue(':promo', $this->promo);
+        $requete->bindvalue(':travail', $this->travail);
         $result = $requete->execute();
 
         return $result;
@@ -101,12 +104,12 @@ class Etudiant extends Personne
             echo "<td>$valeur[3]</td>";
             echo "<td>$valeur[4]</td>";
             echo "<td>$valeur[5]</td>";
-            echo "<td>NULL</td>";
-            echo "<td>NULL</td>";
-            echo "<td>NULL</td>";
-            echo "<td>NULL</td>";
-            echo "<td>NULL</td>";
-            echo "<td>NULL</td>";
+            echo "<td>Non défini</td>";
+            echo "<td>Non défini</td>";
+            echo "<td>Non défini</td>";
+            echo "<td>Non défini</td>";
+            echo "<td>Non défini</td>";
+            echo "<td>Non défini</td>";
             echo "</tr>";
         }
     }

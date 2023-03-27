@@ -139,7 +139,7 @@ function UpdateOneTravail($organisation_id, $etudiant_id, $profession, $annee_de
 {
     $cnx = connexionBDD();
 
-    $requete1 = $cnx->prepare("UPDATE Travailler SET profession='$profession',annee_debut='$annee_debut',annee_fin='$annee_fin' WHERE  Organisation.organisation_id=$organisation_id AND Etudiant.etudiant_id=$etudiant_id");
+    $requete1 = $cnx->prepare("UPDATE Travailler SET profession='$profession',annee_debut='$annee_debut',annee_fin='$annee_fin' WHERE  Travailler.organisation_id=$organisation_id AND Travailler.etudiant_id=$etudiant_id");
     $result = $requete1->execute();
     return $result;
 }

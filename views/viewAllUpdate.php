@@ -1,7 +1,7 @@
 <?php require_once("header.html");
 ?>
 
-<form action="index.php?action=controllerEtudiant/Update/<?= $data[0]['etudiant_id']; ?>/<?= $data[0]['organisation_id']; ?>" method=" post">
+<form action="controllerEtudiant/getUpdate/<?= $data[0]['etudiant_id']; ?>/<?= $data[0]['organisation_id']; ?>" method="post">
     <center>
         <h2>Ajout d'un Étudiant</h2>
         <table>
@@ -65,7 +65,7 @@
 
             <tr>
                 <td></td>
-                <td><input type="reset" name="effacer" value="Effacer"><input type="submit" name="update" value="Update"></td>
+                <td><input type="reset" name="effacer" value="Effacer"><input type="submit" name="update" value="Mettre à jour"></td>
             </tr>
 
         </table>

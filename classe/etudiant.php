@@ -118,10 +118,10 @@ class Etudiant extends Personne
     public function Update()
     {
         $cnx = connexionBDD();
-        $requete = $cnx->prepare("UPDATE AncienEtudiant SET etudiant_id= :id,
+        $requete = $cnx->prepare("UPDATE AncienEtudiant SET ,
         etudiant_nom=:nom,etudiant_prenom=:prenom,
         etudiant_telephone=:telephone,etudiant_mai=:mail
-        etudiant_promo=:promo,etudiant_travail=:travail");
+        etudiant_promo=:promo,etudiant_travail=:travail WHERE etudiant_id=:id");
 
         $requete->bindValue(':id', $this->id);
         $requete->bindvalue(':nom', $this->nom);

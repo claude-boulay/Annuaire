@@ -110,7 +110,7 @@ class Etudiant extends Personne
             echo "<td>Non défini</td>";
             echo "<td>Non défini</td>";
             echo "<td>Non défini</td>";
-            echo "<td><a href=controllerEtudiant/getUpdate/$valeur[0] >Modifier</a></td>";
+            echo "<td><a href=controllerEtudiant/getEtudiantUpdate/$valeur[0] >Modifier</a></td>";
             echo "</tr>";
         }
     }

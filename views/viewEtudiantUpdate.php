@@ -1,41 +1,37 @@
-<?php require_once("header.html"); ?>
+<?php require_once("header.html");
+?>
 
-<form action="index.php?action=controllerEtudiant/Update" method="post">
+<form action="index.php?action=controllerEtudiant/Update/<?= $data['etudiant_id']; ?> method=" post">
     <center>
         <h2>Ajout d'un Étudiant</h2>
         <table>
             <tr>
                 <td>Id de l'étudiant</td>
-                <td><input type="text" name="étudiant_id" size="50" required></td>
+                <td><input type="text" name="étudiant_id" size="50" required value="<?= $data['etudiant_id'] ?>"></td>
             </tr>
             <tr>
                 <td>Nom de l'étudiant</td>
-                <td><input type="text" name="étudiant_nom" size="50" required></td>
+                <td><input type="text" name="étudiant_nom" size="50" required value="<?= $data['etudiant_nom'] ?>"></td>
             </tr>
 
             <tr>
                 <td>Prenom de l'étudiant</td>
-                <td><input type="text" name="étudiant_prenom" size="50" required></td>
+                <td><input type="text" name="étudiant_prenom" size="50" required value="<?= $data['etudiant_prenom']; ?>"></td>
             </tr>
             <tr>
                 <td>Téléphone de l'étudiant</td>
-                <td><input type="tel" name="étudiant_tel" size="50" required></td>
+                <td><input type="tel" name="étudiant_tel" size="50" required value="<?= $data['etudiant_telephone']; ?>"></td>
             </tr>
             <tr>
                 <td>Email de l'étudiant</td>
-                <td><input type="text" name="étudiant_mail" size="50" required></td>
+                <td><input type="text" name="étudiant_mail" size="50" required value="<?= $data['etudiant_mail']; ?>"></td>
             </tr>
             <tr>
                 <td>Promo de l'étudiant</td>
-                <td><input type="text" name="étudiant_promo" size="50" required></td>
+                <td><input type=" text" name="étudiant_promo" size="50" required value="<?= $data['etudiant_promo']; ?>"></td>
             </tr>
-            <tr>
-                <td>Possède un Travail</td>
-                <td><label>Oui</label><input type="radio" name="travail" value="1" id="true"> <label>Faux</label><input type="radio" name="travail" value="0" id="false"></td>
-            </tr>
-            <tr>
-                <td>Profession</td>
-                <td><input type="text" name="profession" size="50"></td>
+            <td>Profession</td>
+            <td><input type="text" name="profession" size="50"></td>
             </tr>
             <tr>
                 <td>Année Début de Profession</td>

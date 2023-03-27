@@ -29,7 +29,7 @@ function getEtudiants()
 function getEtudiant($etudiant_id)
 {
     $cnx = connexionBDD();
-    $requete = "SELECT AncienEtudiant.etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo FROM AncienEtudiant WHERE etudiant_travail IS false AND etudiant_id=$etudiant_id ORDER BY etudiant_Id ASC";
+    $requete = "SELECT AncienEtudiant.etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo FROM AncienEtudiant WHERE AncienEtudiant.etudiant_travail IS false AND etudiant_id=$etudiant_id ORDER BY etudiant_Id ASC";
     $result = $cnx->query($requete);
     $data = $result->fetch(PDO::FETCH_ASSOC);
 
@@ -102,38 +102,44 @@ function getAlls()
         echo "<td>$valeur[11]</td>";
         echo "<td>$valeur[12]</td>";
         echo "<td>$valeur[13]</td>";
-        echo "<td><a href=controllerEtudiant/getUpdate/$valeur[0] >Modifier</a></td>";
+        echo "<td><a href=controllerEtudiant/getUpdate/$valeur[0]/$valeur[9] >Modifier</a></td>";
 
         echo "</tr>";
     }
 }
 
+
+// function pour récupérer les données nécéssairres pour l'update
 function getAll($etudiant_id, $organisation_id)
 {
     $cnx = connexionBDD();
-    $requete = "SELECT DISTINCT AncienEtudiant.etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo,travail_id,profession,(DATEDIFF(annee_fin,annee_debut)) as temps_profession, Organisation.organisation_id,organisation_nom,organisation_adresse,organisation_tel, organisation_site FROM AncienEtudiant,Travailler,Organisation 
-    WHERE AncienEtudiant.etudiant_id=Travailler.etudiant_id AND Travailler.organisation_id=Organisation.organisation_id AND etudiant_id=$etudiant_id AND organisation_id=$organisation_id ORDER BY annee_fin DESC";
+    $requete = "SELECT  AncienEtudiant.etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo,etudiant_travail,profession,annee_debut,annee_fin, Organisation.organisation_id,organisation_nom,organisation_adresse,organisation_tel, organisation_site FROM AncienEtudiant,Travailler,Organisation 
+    WHERE AncienEtudiant.etudiant_id=Travailler.etudiant_id AND Travailler.organisation_id=Organisation.organisation_id AND AncienEtudiant.etudiant_id=$etudiant_id AND Organisation.organisation_id=$organisation_id";
     $resultGetAll = $cnx->query($requete);
+
     $data = $resultGetAll->fetchAll(PDO::FETCH_ASSOC);
+
     return $data;
 }
 
+
+//fonction pour update une organisation
 function UpdateOneOrganisation($organisation_id, $organisation_nom, $organisation_adresse, $organisation_tel, $organisation_site)
 {
     $cnx = connexionBDD();
 
 
-    $requete2 = $cnx->prepare("UPDATE Organisation SET organisation_nom='$organisation_nom',organisation_adresse='$organisation_adresse',organisation_tel='$organisation_tel',organisation_site='$organisation_site' WHERE organisation_id=$organisation_id");
+    $requete2 = $cnx->prepare("UPDATE Organisation SET organisation_nom='$organisation_nom',organisation_adresse='$organisation_adresse',organisation_tel='$organisation_tel',organisation_site='$organisation_site' WHERE Organisation.organisation_id=$organisation_id");
 
     $result = $requete2->execute();
     return $result;
 }
-
+//fonction pour update un travail
 function UpdateOneTravail($organisation_id, $etudiant_id, $profession, $annee_debut, $annee_fin)
 {
     $cnx = connexionBDD();
 
-    $requete1 = $cnx->prepare("UPDATE Travailler SET profession='$profession',annee_debut='$annee_debut',annee_fin='$annee_fin' WHERE  organisation_id=$organisation_id AND etudiant_id=$etudiant_id");
+    $requete1 = $cnx->prepare("UPDATE Travailler SET profession='$profession',annee_debut='$annee_debut',annee_fin='$annee_fin' WHERE  Organisation.organisation_id=$organisation_id AND Etudiant.etudiant_id=$etudiant_id");
     $result = $requete1->execute();
     return $result;
 }

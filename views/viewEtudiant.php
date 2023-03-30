@@ -19,11 +19,11 @@
             </tr>
             <tr>
                 <td>Téléphone de l'étudiant</td>
-                <td><input type="tel" name="étudiant_tel" size="50" required></td>
+                <td><input type="tel" pattern="^0[0-9]{9}" name="étudiant_tel" size="50" required></td>
             </tr>
             <tr>
                 <td>Email de l'étudiant</td>
-                <td><input type="text" name="étudiant_mail" size="50" required></td>
+                <td><input type="email" pattern=".+@.+" name="étudiant_mail" size="50" required></td>
             </tr>
             <tr>
                 <td>Promo de l'étudiant</td>
@@ -31,7 +31,7 @@
             </tr>
             <tr>
                 <td>Possède un Travail</td>
-                <td><label>Oui</label><input type="radio" name="travail" value="1" id="true"> <label>Faux</label><input type="radio" name="travail" value="0" id="false"></td>
+                <td><label>Oui</label><input type="radio" name="travail" value="1" id="true" required> <label>Faux</label><input type="radio" name="travail" value="0" id="false" required></td>
             </tr>
             <tr>
                 <td>Profession</td>
@@ -59,7 +59,7 @@
             </tr>
             <tr>
                 <td>Téléphone de l'Organisation</td>
-                <td><input type="tel" name="organisation_tel" size="50"></td>
+                <td><input type="tel" pattern="^[0-9]{10}" name="organisation_tel" size="50"></td>
             </tr>
             <tr>
                 <td>Site de l'Organisation</td>

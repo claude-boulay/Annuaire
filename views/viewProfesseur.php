@@ -11,11 +11,11 @@
 
             <tr>
                 <td>Téléphone du professeur</td>
-                <td><input type="tel" name="prof_tel" size="50" required></td>
+                <td><input type="tel" pattern="^0[0-9]{9}" name="prof_tel" size="50" required></td>
             </tr>
             <tr>
                 <td>Email du professeur</td>
-                <td><input type="text" name="prof_mail" size="50" required></td>
+                <td><input type="mail" pattern=".+@.+" name="prof_mail" size="50" required></td>
             </tr>
             <tr>
                 <td>Matière du Professeur</td>

@@ -20,11 +20,11 @@
             </tr>
             <tr>
                 <td>Téléphone de l'étudiant</td>
-                <td><input type="tel" name="étudiant_tel" size="50" required value="<?= $data['etudiant_telephone']; ?>"></td>
+                <td><input type="tel" name="étudiant_tel" pattern="^0[0-9]{9}" size="50" required value="<?= $data['etudiant_telephone']; ?>"></td>
             </tr>
             <tr>
                 <td>Email de l'étudiant</td>
-                <td><input type="text" name="étudiant_mail" size="50" required value="<?= $data['etudiant_mail']; ?>"></td>
+                <td><input type="mail" pattern=".+@.+" name="étudiant_mail" size="50" required value="<?= $data['etudiant_mail']; ?>"></td>
             </tr>
             <tr>
                 <td>Promo de l'étudiant</td>
@@ -55,7 +55,7 @@
             </tr>
             <tr>
                 <td>Téléphone de l'Organisation</td>
-                <td><input type="tel" name="organisation_tel" size="50"></td>
+                <td><input type="tel" pattern="^0[0-9]{9}" name="organisation_tel" size="50"></td>
             </tr>
             <tr>
                 <td>Site de l'Organisation</td>

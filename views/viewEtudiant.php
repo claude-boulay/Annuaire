@@ -59,7 +59,7 @@
             </tr>
             <tr>
                 <td>Téléphone de l'Organisation</td>
-                <td><input type="tel" pattern="^[0-9]{10}" name="organisation_tel" size="50"></td>
+                <td><input type="tel" pattern="^0[0-9]{9}" name="organisation_tel" size="50"></td>
             </tr>
             <tr>
                 <td>Site de l'Organisation</td>

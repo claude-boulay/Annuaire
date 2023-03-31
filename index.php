@@ -33,16 +33,16 @@ if ($_GET['action']) {
             } else {
                 $action();
             }
-        } elseif ($identified == false) {
+        } elseif (!isset($_COOKIE['identificationl'])) {
+
             require_once("views/viewIdentification.php");
-            $identified = true;
         } else {
             require("header.html");
         }
     }
-} elseif ($identified == false) {
+} elseif (!isset($_COOKIE['identification'])) {
+
     require_once("views/viewIdentification.php");
-    $identified = true;
 } else {
     require("header.html");
 }

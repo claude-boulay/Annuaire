@@ -4,7 +4,7 @@ define('ROOT', str_replace("index.php", '', $_SERVER['SCRIPT_FILENAME']));
 define('WEBROOT', str_replace("index.php", '', $_SERVER['SCRIPT_NAME']));
 error_reporting(-1); // Pour le développement parti production, il faut le mettre à 0//
 ini_set("display_errors", 1); // "" "" "" ""  ""  ""  ""  ""   ""  ""  ""  ""  ""    //
-
+$identified = false;
 require_once(ROOT . "./models/model.php");
 require_once(ROOT . "./controllers/controller.php");
 //exploxe la chaîne de caractère pour récup l'url converti par htaccess
@@ -33,10 +33,16 @@ if ($_GET['action']) {
             } else {
                 $action();
             }
+        } elseif ($identified == false) {
+            require_once("views/viewIdentification.php");
+            $identified = true;
         } else {
             require("header.html");
         }
     }
+} elseif ($identified == false) {
+    require_once("views/viewIdentification.php");
+    $identified = true;
 } else {
-    require('header.html');
+    require("header.html");
 }

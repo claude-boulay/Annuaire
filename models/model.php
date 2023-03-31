@@ -147,7 +147,7 @@ function UpdateOneTravail($organisation_id, $etudiant_id, $profession, $annee_de
 function getMDP($identifiant)
 {
     $cnx = connexionBDD();
-    $requete = $cnx->prepare("SELECT MDP FROM Connexion WHERE identifiant=$identifiant ");
+    $requete = $cnx->prepare("SELECT MDP FROM Connexion WHERE Connexion.Identifiant=$identifiant ");
     $result = $requete->execute();
     return $result;
 }

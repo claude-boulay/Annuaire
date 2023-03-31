@@ -13,15 +13,17 @@ function identification()
     $mdp = getMDP($identifiant);
     $mdpTest = $_POST["mdp"];
 
+
     if ($mdp == $mdpTest) {
         require_once("header.html");
-        setcookie('identification', "$identifiant", time() + 900, '/', '', true, true);
+        setcookie('identification', "$mdpTest", time() + 900, '/', '', true, true);
         echo "<center>";
         echo "identification réussi";
         echo "</center>";
     } else {
-        echo "<center><h2>";
-        echo "Mot de passe incorrect";
+        require_once("views/viewIdentification.php");
+        echo "<br><center><h2>";
+        echo "Mot de passe ou identifiant incorrect";
         echo "</h2></center>";
     }
 }

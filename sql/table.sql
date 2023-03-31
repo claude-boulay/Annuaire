@@ -62,3 +62,14 @@ CREATE TABLE Travailler(
 	,CONSTRAINT Travailler_Organisation_FK FOREIGN KEY (organisation_id) REFERENCES Organisation(organisation_id)
 	,CONSTRAINT Travailler_AncienEtudiant0_FK FOREIGN KEY (etudiant_id) REFERENCES AncienEtudiant(etudiant_id)
 )ENGINE=InnoDB;
+
+#------------------------------------------------------------
+# Table: Connexion
+#------------------------------------------------------------
+
+CREATE TABLE Connexion(
+        Identifiant Varchar (50) NOT NULL ,
+        mdp         Varchar (50) NOT NULL
+	,CONSTRAINT Connexion_PK PRIMARY KEY (Identifiant)
+)ENGINE=InnoDB;
+

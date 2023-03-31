@@ -58,17 +58,22 @@
         <center>
             <div>
                 <form action="index.php?action=controller/identification" method="post">
-                    <tr>
-                        <td><label for="identifiant">Identifiant</label></td>
-                        <td><input type="text" name="identifiant" id="identifiant"></td>
-                    </tr><br><br>
-                    <tr>
-                        <td><label for="mdp">Mot de Passe</label>
-                        <td>
-                        <td><input type="password" name="mdp" id="mdp">
-                        <td>
-                    </tr><br><br>
-                    <input type="submit" name="identifier" value="identifier">
+                    <table>
+                        <tr>
+                            <td><label for="identifiant">Identifiant</label></td>
+                            <td><input type="text" name="identifiant" id="identifiant"></td>
+                        </tr><b <tr>
+                            <td><label for="mdp">Mot de Passe</label>
+                            </td>
+                            <td><input type="password" name="mdp" id="mdp">
+                            </td>
+                            </tr><br><br>
+                            <tr>
+                                <td></td>
+                                <td><input type="submit" name="identifier" value="identifier"></td>
+                            </tr>
+                    </table>
+
 
                 </form>
             </div>

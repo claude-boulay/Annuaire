@@ -11,10 +11,10 @@ CREATE TABLE AncienEtudiant(
         etudiant_id        Int  Auto_increment  NOT NULL ,
         etudiant_nom       Varchar (50) NOT NULL ,
         etudiant_prenom    Varchar (50) NOT NULL ,
-        etudiant_tel       Varchar (50)  NOT NULL ,
+        etudiant_telephone Int NOT NULL ,
         etudiant_mail      Varchar (50) NOT NULL ,
-        etudiant_promo     Varchar (50) NOT NULL,
-        etudiant_travail Boolean NOT NULL,
+        etudiant_promo     Varchar (50) NOT NULL ,
+        etudiant_travail   TinyINT NOT NULL
 	,CONSTRAINT AncienEtudiant_PK PRIMARY KEY (etudiant_id)
 )ENGINE=InnoDB;
 
@@ -24,11 +24,11 @@ CREATE TABLE AncienEtudiant(
 #------------------------------------------------------------
 
 CREATE TABLE Organisation(
-        organisation_id       Int  Auto_increment  NOT NULL ,
-        organisation_nom      Varchar (50) ,
-        organisation_adresse  Varchar (50) ,
-        organisation_tel      Varchar (50) ,
-        organisation_site     Varchar(500) ,
+        organisation_id      Int  Auto_increment  NOT NULL ,
+        organisation_nom     Varchar (50) NOT NULL ,
+        organisation_adresse Varchar (50) ,
+        organisation_tel     Int ,
+        organisation_site    Varchar (50) NOT NULL
 	,CONSTRAINT Organisation_PK PRIMARY KEY (organisation_id)
 )ENGINE=InnoDB;
 
@@ -38,12 +38,23 @@ CREATE TABLE Organisation(
 #------------------------------------------------------------
 
 CREATE TABLE Professeur(
-        prof_id       Int  Auto_increment  NOT NULL ,
-        prof_nom      Varchar (50) NOT NULL ,
-        prof_tel      Varchar (50)  NOT NULL ,
-        prof_mail     Varchar (50) NOT NULL ,
-        prof_matiere  Varchar (50) NOT NULL
+        prof_id      Int  Auto_increment  NOT NULL ,
+        prof_nom     Varchar (50) NOT NULL ,
+        prof_tel     Int NOT NULL ,
+        prof_mail    Varchar (50) NOT NULL ,
+        prof_matiere Varchar (50) NOT NULL
 	,CONSTRAINT Professeur_PK PRIMARY KEY (prof_id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Connexion
+#------------------------------------------------------------
+
+CREATE TABLE Connexion(
+        Identifiant Varchar (50) NOT NULL ,
+        MDP         Varchar (50) NOT NULL
+	,CONSTRAINT Connexion_PK PRIMARY KEY (Identifiant)
 )ENGINE=InnoDB;
 
 
@@ -52,24 +63,15 @@ CREATE TABLE Professeur(
 #------------------------------------------------------------
 
 CREATE TABLE Travailler(
-        travail_id INT Auto_increment NOT NULL,
-        organisation_id  Int NOT NULL ,
-        etudiant_id      Int NOT NULL ,
-        profession       Varchar (50) ,
-        date_entree      Date ,
-        date_sortie      Date
+        travail_id Int Auto_increment NOT NULL,
+        organisation_id Int NOT NULL ,
+        etudiant_id     Int NOT NULL ,
+        profession      Varchar (50) NOT NULL ,
+        date_entree     Date NOT NULL ,
+        date_sortie     Date
 	,CONSTRAINT Travailler_PK PRIMARY KEY (travail_id)
+
 	,CONSTRAINT Travailler_Organisation_FK FOREIGN KEY (organisation_id) REFERENCES Organisation(organisation_id)
 	,CONSTRAINT Travailler_AncienEtudiant0_FK FOREIGN KEY (etudiant_id) REFERENCES AncienEtudiant(etudiant_id)
-)ENGINE=InnoDB;
-
-#------------------------------------------------------------
-# Table: Connexion
-#------------------------------------------------------------
-
-CREATE TABLE Connexion(
-        Identifiant Varchar (50) NOT NULL ,
-        mdp         Varchar (50) NOT NULL
-	,CONSTRAINT Connexion_PK PRIMARY KEY (Identifiant)
 )ENGINE=InnoDB;
 

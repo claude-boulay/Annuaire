@@ -98,7 +98,7 @@ function getUpdate($etudiant_id, $organisation_id)
             $organisation_tel = $_POST["organisation_tel"];
             $organisation_site = $_POST["site"];
             // si la profession est la même alors ces une mise a jour sinon on crée une nouvelle organisation et travail
-            if ($_POST["profession"] == $data[0]["profession"]) {
+            if ($_POST["organisation_id"] == $data[0]["organisation_1"]) {
                 try {
                     //appel de la fonction pour mettre à jour une organisation
                     UpdateOneOrganisation(

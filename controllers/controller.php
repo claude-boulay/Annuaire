@@ -14,9 +14,11 @@ function identification()
     $mdpTest = $_POST["mdp"];
 
 
-    if ($mdp == $mdpTest) {
+
+
+    if ($mdp[0]["MDP"] == $mdpTest) {
         require_once("header.html");
-        setcookie('identification', "$identifiant", time() + 900, '/', '', true, true);
+        setcookie('identification', "$mdpTest", time() + 900, '/', '', true, true);
         echo "<center>";
         echo "identification réussi";
         echo "</center>";

@@ -33,7 +33,7 @@ if ($_GET['action']) {
             } else {
                 $action();
             }
-        } elseif (!isset($_COOKIE['identificationl'])) {
+        } elseif (!isset($_COOKIE['identification'])) {
 
             require_once("views/viewIdentification.php");
         } else {

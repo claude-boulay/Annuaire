@@ -5,10 +5,7 @@
     <center>
         <h2>Ajout d'un Étudiant</h2>
         <table>
-            <tr>
-                <td>Id de l'étudiant</td>
-                <td><input type="text" name="étudiant_id" size="50" required value="<?= $data['etudiant_id'] ?>"></td>
-            </tr>
+            >
             <tr>
                 <td>Nom de l'étudiant</td>
                 <td><input type="text" name="étudiant_nom" size="50" required value="<?= $data['etudiant_nom'] ?>"></td>
@@ -45,10 +42,7 @@
                 <td>Organisation Id</td>
                 <td><input type="text" name="organisation_id" size="50"></td>
             </tr>
-            <tr>
-                <td>Organisation</td>
-                <td><input type="text" name="organisation_nom" size="50"></td>
-            </tr>
+
             <tr>
                 <td>Adresse de l'Organisation</td>
                 <td><input type="text" name="organisation_adresse" size="50"></td>

@@ -115,6 +115,31 @@ class Etudiant extends Personne
         }
     }
 
+    public static function afficher2()
+    {
+        $ligne = getEtudiants();
+
+
+
+        foreach ($ligne as $valeur) {
+            echo "<tr>";
+            echo "<td>$valeur[1]</td>";
+            echo "<td>$valeur[2]</td>";
+            echo "<td>$valeur[3]</td>";
+            echo "<td>$valeur[4]</td>";
+            echo "<td>$valeur[5]</td>";
+            echo "<td>Non défini</td>";
+            echo "<td>Non défini</td>";
+            echo "<td>Non défini</td>";
+            echo "<td>Non défini</td>";
+            echo "<td>Non défini</td>";
+            echo "<td>Non défini</td>";
+
+            echo "</tr>";
+        }
+    }
+
+
     public function Update()
     {
 

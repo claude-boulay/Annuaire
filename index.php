@@ -35,14 +35,14 @@ if ($_GET['action']) {
             }
         } elseif (!isset($_COOKIE['identification'])) {
 
-            require_once("views/viewIdentification.php");
+            require_once("views/viewsVisiteurs.php");
         } else {
             require("header.html");
         }
     }
 } elseif (!isset($_COOKIE['identification'])) {
 
-    require_once("views/viewIdentification.php");
+    require_once("views/viewsVisiteurs.php");
 } else {
     require("header.html");
 }

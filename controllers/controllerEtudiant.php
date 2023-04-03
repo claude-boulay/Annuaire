@@ -78,13 +78,13 @@ function getUpdate($etudiant_id, $organisation_id)
     }
 
     if (isset($_POST["update"])) {
-        $id = $_POST["étudiant_id"];
+        $id = $data[0]["etudiant_id"];
         $nom = $_POST["étudiant_nom"];
         $prenom = $_POST["étudiant_prenom"];
         $telephone = $_POST["étudiant_tel"];
         $mail = $_POST["étudiant_mail"];
         $promo = $_POST["étudiant_promo"];
-        $id_org = $_POST["organisation_id"];
+        $id_org = $data[0]["organisation_id"];
         if (isset($_POST["profession"])) {
             $travail = 1;
         } else {
@@ -92,7 +92,7 @@ function getUpdate($etudiant_id, $organisation_id)
         }
 
         //création d'un étudiant
-        $etudiant = new Etudiant($id, $nom, $prenom, $telephone, $mail, $promo, $travail);
+        $etudiant = new Etudiant($nom, $prenom, $telephone, $mail, $promo, $travail);
         $etudiant->Update();
         if ((isset($_POST["update"]))) {
 
@@ -104,7 +104,7 @@ function getUpdate($etudiant_id, $organisation_id)
             $organisation_tel = $_POST["organisation_tel"];
             $organisation_site = $_POST["site"];
             // si la profession est la même alors ces une mise a jour sinon on crée une nouvelle organisation et travail
-            if ($_POST["organisation_id"] == $data[0]["organisation_1"]) {
+            if ($_POST["organisation_nom"] == $data[0]["organisation_nom"]) {
                 try {
                     //appel de la fonction pour mettre à jour une organisation
                     UpdateOneOrganisation(
@@ -127,15 +127,17 @@ function getUpdate($etudiant_id, $organisation_id)
                     echo "<center><h2>Le champ Travail n'a pas été rempli correctement</h2></center>";
                 }
             } else {
+
                 try {
                     //appel de la fonction pour ajouter une organisation
                     addOneOrganisation(
-                        $id_org,
+
                         $organisation_nom,
                         $organisation_adresse,
                         $organisation_tel,
                         $organisation_site
                     );
+                    $id_org = getIdOrganisation($organisation_nom);
                 } catch (Exception $e) {
                     require_once("views/viewEtudiantUpdate.php");
                     echo "<center><h2>L'id de l'Organisation ou le nom ne correspond pas au critère<h2>";
@@ -143,7 +145,7 @@ function getUpdate($etudiant_id, $organisation_id)
 
                 try {
                     //ajout d'un travail pour l'étudiant modifié
-                    addOneTravail($id_org, $id, $profession, $annee_debut, $annee_fin);
+                    addOneTravail($id_org[0]["organisation_id"], $id, $profession, $annee_debut, $annee_fin);
                 } catch (Exception $e) {
                     require_once("views/viewEtudiantUpdate.php");
                     echo "<center><h2>Le champ Travail n'a pas été rempli correctement</h2></center>";
@@ -167,13 +169,13 @@ function getEtudiantUpdate($etudiant_id)
     }
 
     if (isset($_POST["update"])) {
-        $id = $_POST["étudiant_id"];
+        $id = $data[0]["etudiant_id"];
         $nom = $_POST["étudiant_nom"];
         $prenom = $_POST["étudiant_prenom"];
         $telephone = $_POST["étudiant_tel"];
         $mail = $_POST["étudiant_mail"];
         $promo = $_POST["étudiant_promo"];
-        $id_org = $_POST["organisation_id"];
+
         if (isset($_POST["profession"])) {
             $travail = 1;
         } else {
@@ -181,7 +183,7 @@ function getEtudiantUpdate($etudiant_id)
         }
 
         //création d'un étudiant
-        $etudiant = new Etudiant($id, $nom, $prenom, $telephone, $mail, $promo, $travail);
+        $etudiant = new Etudiant($nom, $prenom, $telephone, $mail, $promo, $travail);
         //La fonction Update mets à jours les données de cet étudiant
         $etudiant->Update();
         if ((isset($_POST["update"]))) {
@@ -204,6 +206,7 @@ function getEtudiantUpdate($etudiant_id)
                     $organisation_tel,
                     $organisation_site
                 );
+                $id_org = getIdOrganisation($organisation_nom);
             } catch (Exception $e) {
                 require_once("views/viewEtudiantUpdate.php");
                 echo "<center><h2>L'id de l'Organisation ou le nom ne correspond pas au critère<h2>";

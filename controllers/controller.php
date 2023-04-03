@@ -29,3 +29,8 @@ function identification()
         echo "</h2></center>";
     }
 }
+
+function connexion()
+{
+    require_once("../views/viewsIdentification.php");
+}

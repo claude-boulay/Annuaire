@@ -1,3 +1,8 @@
+<?php
+require_once("models/model.php");
+require_once("classe/etudiant.php");
+require_once("classe/professeur.php"); ?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -35,8 +40,12 @@
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
                             <li class="nav-item"><a class="nav-link" href="">Accueil</a></li>
-
-
+                            <li class="nav-item submenu dropdown">
+                                <a href="views/viewIdentification.php" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Connexion
+                                </a>
+                        </ul>
+                        </li>
                         </ul>
                     </div>
                 </div>
@@ -54,31 +63,49 @@
                 </div>
             </div>
         </div>
-        <br>
-        <center>
-            <div>
-                <form action="index.php?action=controller/identification" method="post">
-                    <table>
-                        <tr>
-                            <td><label for="identifiant">Identifiant</label></td>
-                            <td><input type="text" name="identifiant" id="identifiant"></td>
-                        </tr><b <tr>
-                            <td><label for="mdp">Mot de Passe</label>
-                            </td>
-                            <td><input type="password" name="mdp" id="mdp">
-                            </td>
-                            </tr><br><br>
-                            <tr>
-                                <td></td>
-                                <td><input type="submit" name="identifier" value="identifier"></td>
-                            </tr>
-                    </table>
-
-
-                </form>
-            </div>
-        </center>
     </section>
-</body>
 
-</html>
+
+    <center>
+        <br>
+        <h2>Tous les étudiant aillant participer au BTS SIO</h2>
+        <br>
+        <table border="1">
+            <tr>
+                <th>Nom de l'étudiant</th>
+                <th>Prénom de l'étudiant</th>
+                <th>Téléphone de l'étudiant</th>
+                <th>E-mail de l'étudiant</th>
+                <th>Promo de l'étudiant</th>
+                <th>Profession</th>
+                <th>Durée de la Profession</th>
+                <th>Nom de l'Organisation</th>
+                <th>Adresse de l'Organisation</th>
+                <th>Téléphone de l'Organisation</th>
+                <th>Site de l'Organisation</th>
+
+            </tr>
+            <?php
+            getAlls2();
+            Etudiant::afficher2();
+            ?>
+        </table>
+        <br>
+        <br>
+        <h2>Tous les Professeurs du BTS SIO</h2>
+        <br>
+        <table border="1">
+            <tr>
+                <th>Nom des Professeurs</th>
+                <th>Téléphone des Professeurs</th>
+                <th>E-mail des Professeurs</th>
+                <th>Matière du Professeurs</th>
+            </tr>
+
+            <?php Professeur::afficher(); ?>
+        </table>
+        <br>
+        <br>
+
+    </center>
+    </form>

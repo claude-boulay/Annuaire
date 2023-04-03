@@ -146,6 +146,7 @@ function getUpdate($etudiant_id, $organisation_id)
                 try {
                     //ajout d'un travail pour l'étudiant modifié
                     addOneTravail($id_org[0]["organisation_id"], $id, $profession, $annee_debut, $annee_fin);
+                    echo "<center><h2>La Mise à jour à bien été effectué</h2></center>";
                 } catch (Exception $e) {
                     require_once("views/viewEtudiantUpdate.php");
                     echo "<center><h2>Le champ Travail n'a pas été rempli correctement</h2></center>";
@@ -215,6 +216,7 @@ function getEtudiantUpdate($etudiant_id)
             try {
                 //ajout d'un travail pour l'étudiant modifié
                 addOneTravail($id_org, $id, $profession, $annee_debut, $annee_fin);
+                echo "<center><h2>La Mise à jour à bien été effectué</h2></center>";
             } catch (Exception $e) {
                 require_once("views/viewEtudiantUpdate.php");
                 echo "<center><h2>Le champ Travail n'a pas été rempli correctement</h2></center>";

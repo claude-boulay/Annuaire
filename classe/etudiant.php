@@ -9,9 +9,9 @@ class Etudiant extends Personne
     private int $travail;
     private $id;
 
-    public function __construct($id, string $nom, string $prenom, string $telephone, string $mail, string $promo, int $travail)
+    public function __construct(string $nom, string $prenom, string $telephone, string $mail, string $promo, int $travail)
     {
-        $this->id = $id;
+
         $this->setNom($nom);
         $this->setPrenom($prenom);
         $this->setTelephone($telephone);
@@ -76,10 +76,10 @@ class Etudiant extends Personne
     public function enregistrer()
     {
         $cnx = connexionBDD();
-        $requete = $cnx->prepare("INSERT INTO AncienEtudiant(etudiant_id,etudiant_nom,etudiant_prenom,
+        $requete = $cnx->prepare("INSERT INTO AncienEtudiant(etudiant_nom,etudiant_prenom,
             etudiant_telephone,etudiant_mail,etudiant_promo,etudiant_travail) 
-            VALUES (:id,:nom,:prenom,:telephone,:mail,:promo,:travail)");
-        $requete->bindValue(':id', $this->id);
+            VALUES (:nom,:prenom,:telephone,:mail,:promo,:travail)");
+
         $requete->bindvalue(':nom', $this->nom);
         $requete->bindvalue(':prenom', $this->prenom);
         $requete->bindvalue(':telephone', $this->telephone);

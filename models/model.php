@@ -60,12 +60,12 @@ function getTravail()
     return $resultGetTravail;
 }
 
-function addOneOrganisation($organisation_id, $organisation_nom, $organisation_adresse, $organisation_tel, $organisation_site)
+function addOneOrganisation($organisation_nom, $organisation_adresse, $organisation_tel, $organisation_site)
 {
     $cnx = connexionBDD();
 
 
-    $requete2 = $cnx->prepare("INSERT INTO Organisation(organisation_id,organisation_nom,organisation_adresse,organisation_tel,organisation_site) VALUES('$organisation_id','$organisation_nom','$organisation_adresse','$organisation_tel','$organisation_site')");
+    $requete2 = $cnx->prepare("INSERT INTO Organisation(organisation_nom,organisation_adresse,organisation_tel,organisation_site) VALUES('$organisation_nom','$organisation_adresse','$organisation_tel','$organisation_site')");
 
     $result = $requete2->execute();
     return $result;
@@ -76,6 +76,15 @@ function addOneTravail($organisation_id, $etudiant_id, $profession, $annee_debut
     $cnx = connexionBDD();
 
     $requete1 = $cnx->prepare("INSERT INTO Travailler(organisation_id,etudiant_id,profession,annee_debut,annee_fin) VALUES('$organisation_id','$etudiant_id','$profession','$annee_debut','$annee_fin')");
+    $result = $requete1->execute();
+    return $result;
+}
+
+function addOneTravail2($organisation_id, $etudiant_id, $profession, $annee_debut)
+{
+    $cnx = connexionBDD();
+
+    $requete1 = $cnx->prepare("INSERT INTO Travailler(organisation_id,etudiant_id,profession,annee_debut) VALUES('$organisation_id','$etudiant_id','$profession','$annee_debut')");
     $result = $requete1->execute();
     return $result;
 }
@@ -148,6 +157,24 @@ function getMDP($identifiant)
 {
     $cnx = connexionBDD();
     $requete = "SELECT MDP FROM Connexion WHERE Identifiant='$identifiant'";
+    $result = $cnx->query($requete);
+    $data = $result->fetchAll(PDO::FETCH_ASSOC);
+    return $data;
+}
+
+function getIdEtudiant($nom_etudiant)
+{
+    $cnx = connexionBDD();
+    $requete = "SELECT etudiant_id FROM AncienEtudiant WHERE etudiant_nom='$nom_etudiant'";
+    $result = $cnx->query($requete);
+    $data = $result->fetchAll(PDO::FETCH_ASSOC);
+    return $data;
+}
+
+function getIdOrganisation($nom_organisation)
+{
+    $cnx = connexionBDD();
+    $requete = "SELECT organisation_id FROM Organisation WHERE organisation_nom='$nom_organisation'";
     $result = $cnx->query($requete);
     $data = $result->fetchAll(PDO::FETCH_ASSOC);
     return $data;

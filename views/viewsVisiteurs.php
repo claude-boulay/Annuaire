@@ -80,7 +80,7 @@ require_once("classe/professeur.php"); ?>
                 <th>Profession</th>
                 <th>Date de début de Profession</th>
                 <th>Date de fin de Profession</th>
-                <th>Durée de la Profession</th>
+                <th>Durée de la Profession (en jours)</th>
                 <th>Nom de l'Organisation</th>
                 <th>Adresse de l'Organisation</th>
                 <th>Téléphone de l'Organisation</th>

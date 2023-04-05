@@ -5,7 +5,7 @@
     <center>
         <h2>Ajout d'un Étudiant</h2>
         <table>
-            >
+
             <tr>
                 <td>Nom de l'étudiant</td>
                 <td><input type="text" name="étudiant_nom" size="50" required value="<?= $data['etudiant_nom'] ?>"></td>

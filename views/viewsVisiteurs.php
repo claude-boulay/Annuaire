@@ -78,6 +78,8 @@ require_once("classe/professeur.php"); ?>
                 <th>E-mail de l'étudiant</th>
                 <th>Promo de l'étudiant</th>
                 <th>Profession</th>
+                <th>Date de début de Profession</th>
+                <th>Date de fin de Profession</th>
                 <th>Durée de la Profession</th>
                 <th>Nom de l'Organisation</th>
                 <th>Adresse de l'Organisation</th>

@@ -92,7 +92,7 @@ function addOneTravail2($organisation_id, $etudiant_id, $profession, $annee_debu
 function getAlls()
 {
     $cnx = connexionBDD();
-    $requete = "SELECT  AncienEtudiant.etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo,travail_id,profession,(DATEDIFF(annee_fin,annee_debut)) as temps_profession, Organisation.organisation_id,organisation_nom,organisation_adresse,organisation_tel, organisation_site FROM AncienEtudiant,Travailler,Organisation 
+    $requete = "SELECT  AncienEtudiant.etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo,travail_id,profession,annee_fin,annee_debut, Organisation.organisation_id,organisation_nom,organisation_adresse,organisation_tel, organisation_site FROM AncienEtudiant,Travailler,Organisation 
     WHERE AncienEtudiant.etudiant_id=Travailler.etudiant_id AND Travailler.organisation_id=Organisation.organisation_id ORDER BY annee_fin DESC";
     $resultGetAll = $cnx->query($requete);
     $ligne = $resultGetAll->fetchAll(PDO::FETCH_NUM);
@@ -105,12 +105,22 @@ function getAlls()
         echo "<td>$valeur[4]</td>";
         echo "<td>$valeur[5]</td>";
         echo "<td>$valeur[7]</td>";
-        echo "<td>$valeur[8] jours</td>";
-        echo "<td>$valeur[10]</td>";
+        echo "<td>$valeur[9]</td>";
+        echo "<td>$valeur[8] </td>";
 
+        $date2 = new DateTime("$valeur[9] 00:00:00");
+        if ($valeur[8] != null) {
+            $date1 = new DateTime("$valeur[8] 00:00:00");
+        } else {
+            $date1 = new DateTime(time());
+        }
+        $test = date_diff($date2, $date1);
+        echo "<td>" . $test->days . "</td>";
         echo "<td>$valeur[11]</td>";
+
         echo "<td>$valeur[12]</td>";
         echo "<td>$valeur[13]</td>";
+        echo "<td>$valeur[14]</td>";
         echo "<td><a href=controllerEtudiant/getUpdate/$valeur[0]/$valeur[9] >Modifier</a></td>";
 
         echo "</tr>";
@@ -120,7 +130,7 @@ function getAlls()
 function getAlls2()
 {
     $cnx = connexionBDD();
-    $requete = "SELECT  AncienEtudiant.etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo,travail_id,profession,(DATEDIFF(annee_fin,annee_debut)) as temps_profession, Organisation.organisation_id,organisation_nom,organisation_adresse,organisation_tel, organisation_site FROM AncienEtudiant,Travailler,Organisation 
+    $requete = "SELECT  AncienEtudiant.etudiant_id,etudiant_nom,etudiant_prenom,etudiant_telephone,etudiant_mail,etudiant_promo,travail_id,profession,annee_debut,annee_fin, Organisation.organisation_id,organisation_nom,organisation_adresse,organisation_tel, organisation_site FROM AncienEtudiant,Travailler,Organisation 
     WHERE AncienEtudiant.etudiant_id=Travailler.etudiant_id AND Travailler.organisation_id=Organisation.organisation_id ORDER BY annee_fin DESC";
     $resultGetAll = $cnx->query($requete);
     $ligne = $resultGetAll->fetchAll(PDO::FETCH_NUM);
@@ -133,12 +143,21 @@ function getAlls2()
         echo "<td>$valeur[4]</td>";
         echo "<td>$valeur[5]</td>";
         echo "<td>$valeur[7]</td>";
-        echo "<td>$valeur[8] jours</td>";
-        echo "<td>$valeur[10]</td>";
-
+        echo "<td>$valeur[8]</td>";
+        echo "<td>$valeur[9]</td>";
+        $date2 = new DateTime("$valeur[8] 00:00:00");
+        if ($valeur[9] != null) {
+            $date1 = new DateTime("$valeur[9] 00:00:00");
+        } else {
+            $date1 = new DateTime(time());
+        }
+        $test = date_diff($date2, $date1);
+        echo "<td>" . $test->days . "</td>";
         echo "<td>$valeur[11]</td>";
+
         echo "<td>$valeur[12]</td>";
         echo "<td>$valeur[13]</td>";
+        echo "<td>$valeur[14]</td>";
 
 
         echo "</tr>";

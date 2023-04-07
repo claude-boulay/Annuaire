@@ -112,7 +112,8 @@ function getAlls()
         if ($valeur[8] != null) {
             $date1 = new DateTime("$valeur[8] 00:00:00");
         } else {
-            $date1 = new DateTime(time());
+            $now = time();
+            $date1 = new DateTime(date("Y/m/d H:i:s", $now));
         }
         $test = date_diff($date2, $date1);
         echo "<td>" . $test->days . "</td>";
@@ -149,7 +150,8 @@ function getAlls2()
         if ($valeur[9] != null) {
             $date1 = new DateTime("$valeur[9] 00:00:00");
         } else {
-            $date1 = new DateTime(time());
+            $now = time();
+            $date1 = new DateTime(date("Y/m/d H:i:s", $now));
         }
         $test = date_diff($date2, $date1);
         echo "<td>" . $test->days . "</td>";
@@ -201,6 +203,17 @@ function UpdateOneTravail($organisation_id, $etudiant_id, $profession, $annee_de
     return $result;
 }
 
+function UpdateOneTravail2($organisation_id, $etudiant_id, $profession, $annee_debut)
+{
+    $cnx = connexionBDD();
+
+    $requete1 = $cnx->prepare("UPDATE Travailler SET profession='$profession',annee_debut='$annee_debut' WHERE  Travailler.organisation_id=$organisation_id AND Travailler.etudiant_id=$etudiant_id");
+    $result = $requete1->execute();
+    return $result;
+}
+
+
+
 function getMDP($identifiant)
 {
     $cnx = connexionBDD();
@@ -226,4 +239,15 @@ function getIdOrganisation($nom_organisation)
     $result = $cnx->query($requete);
     $data = $result->fetchAll(PDO::FETCH_ASSOC);
     return $data;
+}
+
+
+//création d'un nouvelle utilisateur
+
+function insertAdmin($identifiant, $mdp)
+{
+    $cnx = connexionBDD();
+    $requete = $cnx->prepare("INSERT INTO Connexion(Identifiant,MDP) VALUES('$identifiant','$mdp')");
+    $result = $requete->execute();
+    return $result;
 }

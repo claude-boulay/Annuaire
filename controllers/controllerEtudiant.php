@@ -98,7 +98,12 @@ function getUpdate($etudiant_id, $organisation_id)
 
             $profession = $_POST["profession"];
             $annee_debut = $_POST["annee_debut"];
-            $annee_fin = $_POST["annee_fin"];
+            if (isset($_POST["annee_fin"])) {
+                $annee_fin = $_POST["annee_fin"];
+            } else {
+                $annee_fin = null;
+            }
+
             $organisation_nom = $_POST["organisation_nom"];
             $organisation_adresse = $_POST["organisation_adresse"];
             $organisation_tel = $_POST["organisation_tel"];
@@ -121,7 +126,12 @@ function getUpdate($etudiant_id, $organisation_id)
 
                 try {
                     //appel de la fonction pour mettre à jour le travail correspondant à l'organisation et au travail précédant
-                    UpdateOneTravail($id_org, $id, $profession, $annee_debut, $annee_fin);
+                    if ($annee_fin == null) {
+                        UpdateOneTravail2($id_org, $id, $profession, $annee_debut);
+                    } else {
+                        UpdateOneTravail($id_org, $id, $profession, $annee_debut, $annee_fin);
+                    }
+                    echo "<center><h2>La mise à jour à bien été effectuer</h2></center>";
                 } catch (Exception $e) {
                     require_once("views/viewAllUpdate.php");
                     echo "<center><h2>Le champ Travail n'a pas été rempli correctement</h2></center>";

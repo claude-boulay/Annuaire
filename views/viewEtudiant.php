@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td>Email de l'étudiant</td>
-                <td><input type="email" pattern=".+@.+" name="étudiant_mail" size="50" required></td>
+                <td><input type="email" pattern=".+@.+.com" name="étudiant_mail" size="50" required></td>
             </tr>
             <tr>
                 <td>Promo de l'étudiant</td>

@@ -1,6 +1,7 @@
 <?php
 function connexionBDD()
 {
+    // données pouvant changer selon l'hote du site
     $host = "localhost";
     $db_name = "Annuaire";
     $username = "root";

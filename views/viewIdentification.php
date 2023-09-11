@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <base href="/~claude.boulay/www/annuaire/">
+    <base href="/~claude.boulay/projet/annuaire/">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -62,7 +62,7 @@
                         <tr>
                             <td><label for="identifiant">Identifiant</label></td>
                             <td><input type="text" name="identifiant" id="identifiant"></td>
-                        </tr><b <tr>
+                        </tr><br> <tr>
                             <td><label for="mdp">Mot de Passe</label>
                             </td>
                             <td><input type="password" name="mdp" id="mdp">

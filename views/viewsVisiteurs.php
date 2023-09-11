@@ -7,7 +7,7 @@ require_once("classe/professeur.php"); ?>
 <html lang="fr">
 
 <head>
-    <base href="/~claude.boulay/www/annuaire/">
+    <base href="/~claude.boulay/projet/annuaire/">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

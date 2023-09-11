@@ -67,8 +67,8 @@ CREATE TABLE Travailler(
         organisation_id Int NOT NULL ,
         etudiant_id     Int NOT NULL ,
         profession      Varchar (50) NOT NULL ,
-        date_entree     Date NOT NULL ,
-        date_sortie     Date
+        annee_debut     Date NOT NULL ,
+        annee_fin     Date
 	,CONSTRAINT Travailler_PK PRIMARY KEY (travail_id)
 
 	,CONSTRAINT Travailler_Organisation_FK FOREIGN KEY (organisation_id) REFERENCES Organisation(organisation_id)

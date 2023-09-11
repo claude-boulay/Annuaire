@@ -1,4 +1,4 @@
-Les lignes a modifier lors d'un export du projet se trouve dans les fichier suivant:
+Les lignes a modifier lors d'un export du projet se trouvent dans les fichiers suivants:
 
 model.php ligne 5 à 8
 header.html ligne 6

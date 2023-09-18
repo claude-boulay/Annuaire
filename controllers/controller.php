@@ -16,6 +16,7 @@ function identification()
 
 
 
+    
     if ($vérif == true) {
         require_once("header.html");
         setcookie('identification', "$mdpTest", time() + 900, '/', '', true, true);
